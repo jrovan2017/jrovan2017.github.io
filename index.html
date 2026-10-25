@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <header class="topbar">
@@ -108,6 +108,7 @@
         <button type="button" data-filter="banheiro">Banheiro e hidráulica</button>
         <button type="button" data-filter="alarmes">Alarmes</button>
         <button type="button" data-filter="cftv">CFTV</button>
+                <button type="button" data-filter="portoes">Portões</button>
       </div>
       <aside class="category-tip" id="categoryTip" aria-live="polite">
         <img src="assets/apresentador-rovan.png" alt="">
@@ -115,6 +116,7 @@
         <button type="button" data-open-planner>Tire sua dúvida →</button>
       </aside>
       <p class="catalog-count" id="catalogCount"></p>
+      <p class="catalog-price-note">Preços-base de referência. Modelo, disponibilidade, materiais adicionais e instalação são confirmados antes do pedido.</p>
       <div class="product-grid" id="productGrid"></div>
       <p class="empty-state" id="emptyState" hidden>Nenhum item encontrado. Tente outra busca.</p>
     </section>
@@ -133,20 +135,12 @@
       <div class="service-heading-wrap">
         <div class="section-heading">
           <span class="eyebrow">INSTALAÇÃO PROFISSIONAL</span>
-          <h2>Referências claras desde o começo</h2>
-          <p>Valores iniciais de mão de obra para instalações simples, em ponto existente e com acesso normal. Em uma primeira mudança com vários itens, montamos um preço fechado para o conjunto.</p>
+          <h2>A instalação certa aparece junto do produto</h2>
+          <p>Cada item do catálogo informa sua própria projeção de mão de obra, o que está incluído e as condições que podem alterar o valor. Assim, você vê somente as informações pertinentes ao que escolheu.</p>
         </div>
         <img class="service-presenter" src="assets/apresentador-rovan-instalacao.png" alt="Técnico ROVAN apresentando uma instalação elétrica">
       </div>
-      <div class="price-grid">
-        <article><span>Atendimento mínimo</span><strong>R$ 120</strong><small>visita com execução de serviço simples</small></article>
-        <article><span>Luminária ou painel</span><strong>a partir de R$ 110</strong><small>por ponto existente</small></article>
-        <article><span>Chuveiro elétrico</span><strong>a partir de R$ 200</strong><small>troca em circuito adequado</small></article>
-        <article><span>Torneira simples</span><strong>a partir de R$ 120</strong><small>troca no mesmo ponto</small></article>
-        <article><span>Câmera Wi‑Fi</span><strong>a partir de R$ 190</strong><small>com ponto elétrico disponível</small></article>
-        <article><span>Sistema de alarme</span><strong>a partir de R$ 900</strong><small>configuração básica residencial</small></article>
-      </div>
-      <p class="price-note">Materiais adicionais, passagem de cabos, ponto novo, adequação do quadro, trabalho em altura e deslocamento são avaliados antes da confirmação. O orçamento final é informado antes do serviço.</p>
+      <div class="installation-explainer"><strong>Como consultar:</strong><span>Escolha um produto e toque em “Projeção de instalação”. A tela mostrará estimativa, escopo, condições e referências específicas daquele serviço.</span><a href="#catalogo">Ver produtos →</a></div>
     </section>
 
     <section class="section payment-section" id="pagamento">
@@ -218,6 +212,7 @@
         <label><input type="checkbox" value="banheiro"><span><b>≋</b><strong>Banheiro e hidráulica</strong><small>Conforto desde o primeiro dia</small></span></label>
         <label><input type="checkbox" value="alarmes"><span><b>◉</b><strong>Quero um alarme</strong><small>Kit completo e personalizável</small></span></label>
         <label><input type="checkbox" value="cftv"><span><b>◉</b><strong>Quero câmeras</strong><small>Kits de 4 ou 8 câmeras</small></span></label>
+        <label><input type="checkbox" value="portoes"><span><b>↔</b><strong>Quero automatizar o portão</strong><small>Deslizante ou basculante</small></span></label>
         <label><input type="checkbox" value="instalacao"><span><b>⌁</b><strong>Preciso de instalação</strong><small>Já tenho alguns produtos</small></span></label>
       </div>
       <button class="button primary full" type="button" id="plannerResult">Ver minha sugestão</button>
@@ -235,7 +230,7 @@
         <input type="hidden" id="editingId">
         <input name="name" required placeholder="Nome do produto">
         <input name="price" inputmode="decimal" placeholder="Preço: 59,90 (vazio = sob consulta)">
-        <select name="category" required><option value="essenciais">Primeiros essenciais</option><option value="iluminacao">Iluminação e elétrica</option><option value="banheiro">Banheiro e hidráulica</option><option value="alarmes">Alarmes</option><option value="cftv">CFTV</option><option value="seguranca">Casa segura</option><option value="kits">Kits</option></select>
+        <select name="category" required><option value="essenciais">Primeiros essenciais</option><option value="iluminacao">Iluminação e elétrica</option><option value="banheiro">Banheiro e hidráulica</option><option value="alarmes">Alarmes</option><option value="cftv">CFTV</option><option value="portoes">Portões automáticos</option><option value="seguranca">Casa segura</option><option value="kits">Kits</option></select>
         <input name="image" inputmode="url" placeholder="Link da imagem">
         <label class="file-field">Ou escolher imagem<input name="imageFile" type="file" accept="image/*"></label>
         <textarea name="description" placeholder="Descrição curta (pode preencher depois)"></textarea>
@@ -259,11 +254,12 @@
       <form id="customizeForm" class="customize-form">
         <input type="hidden" name="productId">
         <div id="alarmCustomizeFields">
+          <label id="sensorConnectionField"><span>Tipo de sensores</span><select name="sensorConnection"><option value="Com fio">Com fio - menor custo</option><option value="Sem fio">Sem fio - instalação mais limpa</option><option value="Configuração mista" selected>Configuração mista</option></select></label>
           <label><span>Sensores de porta/janela</span><input type="number" name="openingSensors" min="1" max="32" value="2"></label>
           <label><span>Sensores internos PET</span><input type="number" name="internalSensors" min="0" max="16" value="1"></label>
           <label><span>Sensores externos</span><input type="number" name="externalSensors" min="0" max="16" value="0"></label>
           <label><span>Controles adicionais</span><input type="number" name="extraRemotes" min="1" max="16" value="1"></label>
-          <div class="included-note">Todo kit já considera sirene e bateria. O modelo de cada acessório acompanha a família da central escolhida.</div>
+          <div class="included-note" id="alarmIncludedNote">O conteúdo do kit será confirmado conforme a central escolhida.</div>
         </div>
         <div id="cftvCustomizeFields" hidden>
           <fieldset><legend>Tecnologia das câmeras</legend>
@@ -277,6 +273,24 @@
         </div>
         <button class="button primary full" type="submit">Adicionar configuração ao pedido</button>
       </form>
+    </div>
+  </div>
+
+  <div class="modal" id="installationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="installationProductName">
+    <div class="modal-card installation-card">
+      <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="eyebrow">PROJEÇÃO DE INSTALAÇÃO</span>
+      <div class="installation-product-head">
+        <div class="installation-product-image" id="installationProductImage"></div>
+        <div><h2 id="installationProductName">Produto</h2><p>Estimativa inicial para você entender o serviço antes de confirmar o pedido.</p></div>
+      </div>
+      <div class="installation-estimate"><span id="installationEstimateLabel">Instalação</span><strong id="installationEstimateValue">Sob análise</strong><small id="installationEstimateUnit"></small></div>
+      <div class="installation-details-grid">
+        <section><h3>O que está incluído</h3><ul id="installationIncluded"></ul></section>
+        <section><h3>O que pode alterar o valor</h3><p id="installationConditions"></p></section>
+      </div>
+      <div class="installation-reference"><strong>Condições e referências pertinentes</strong><p id="installationReference"></p><small>A projeção não é cobrança. O valor final e o escopo são confirmados antes do serviço.</small></div>
+      <div class="installation-actions"><button class="button primary" type="button" id="installationAdd">Adicionar produto + solicitar instalação</button><button class="button secondary" type="button" id="installationSurvey">Enviar informações do local</button></div>
     </div>
   </div>
 
@@ -314,7 +328,7 @@
 
   <div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="catalog-data.js"></script>
-  <script src="app-v3.js"></script>
+  <script src="catalog-data.js?v=8"></script>
+  <script src="app-v3.js?v=8"></script>
 </body>
 </html>

@@ -68,7 +68,6 @@ const KYTE_CATALOG=[
 ['KIT P/BANHEIRO SINK 5 PCS',69.9,'banheiro','g3mINUv17j4L6%2BS9tQV5TA%3D%3D'],
 ['KIT PARA BANHEIRO JUNIOR 5 PCS',69.9,'banheiro','RFsYcK3LPXSSj8HbH4CDxg%3D%3D'],
 ['PORTA SHAMPOO BR PARA BANHEIRO',42.9,'banheiro','Yk9kxdgtmgpIfnrTRcIGYQ%3D%3D'],
-['PORTA SHAMPOO BR PARA BANHEIRO',42.9,'banheiro','kcBiFaSVuL0T0FwleDuq%2Bw%3D%3D'],
 ['PORTA TOALHA ARGOLA ECONOMICO CROMADO',26.9,'banheiro','lFsxwqgllgGsgxtpOh11w%3D%3D'],
 ['PORTA TOALHA CABIDE ECONOMICO CROMADO',10.9,'banheiro','vHv1qYK0tzwB0kgL9FZ5mQ%3D%3D'],
 ['RESISTENCIA CORONA 220Vx5200W SS S FORTE',29.9,'banheiro','UIGfhi87COTcOD2pejek2w%3D%3D'],
@@ -76,7 +75,6 @@ const KYTE_CATALOG=[
 ['TORNEIRA LAVATORIO MONO UP SINK',49.9,'banheiro','So6o6lre5lB8TAeLRuIkJg%3D%3D'],
 ['TORNEIRA ABS TANQUE 15CM SICILIA C/ BICO BR',29.9,'banheiro','ZKR3UzYgnL7Wrdf%2B%2Biz3bg%3D%3D'],
 ['TORNEIRA ABS TANQUE/MAQ SICILIA C/ BICO CR',39.9,'banheiro','2I4RBfihAJpOywZBggEX%2BQ%3D%3D'],
-['TORNEIRA ABS TANQUE/MAQ SICILIA C/ BICO CR',39.9,'banheiro','GCP87lFQUx5kiWpPy3PDA%3D%3D'],
 ['TORNEIRA BICA LAVATORIO 1/4 V. C -34 FIT',79.9,'banheiro','bw%2BSkek5TYlaaRv3iRyHfw%3D%3D'],
 ['TORNEIRA BICA MOVEL PAREDE 1/4 V FLEX CH C34 FIT',99.9,'banheiro','7AtA63krRduMX%2By1n%2Bg62Q%3D%3D'],
 ['TORNEIRA BICA MOVEL PAREDE 1/4 V. C -34 FIT',79.9,'banheiro','tbld4EHHCDDO3kIi6Q0g%3D%3D'],
@@ -88,13 +86,11 @@ const KYTE_CATALOG=[
 ['TORNEIRA LAVATORIO LUXO 1/4 VOLTA C-10',109.9,'banheiro','hp0wSHYOWlKvOyTVk7m0PA%3D%3D'],
 ['TORNEIRA LAVATORIO MATIC SINK',81.9,'banheiro','hRYkWbnsifUMOsTI5UbA%3D%3D'],
 ['TORNEIRA LAVATORIO MONO UP BLACK SINK',49.9,'banheiro','y2UyWIU0vHMXBPVU0b5%2BGA%3D%3D'],
-['TORNEIRA LAVATORIO MONO UP BLACK SINK',49.9,'banheiro','R8ixVseIVl0YbFy4jL2uDw%3D%3D'],
 ['TORNEIRA LAVATORIO TIVOLI CROMADA',55.9,'banheiro','N78oCx3iBBGViaog8HI2dg%3D%3D'],
 ['TORNEIRA LUNA 4 TEMPERATURA 5500W 220V BRANCO',183.9,'banheiro','m2ow7icDxgpUQguor8lOIw%3D%3D'],
 ['TORNEIRA MAQUINA LAVAR L SINK 1/4 V.',50.9,'banheiro','CdyOlD4RhWLL7JCtlCqWwg%3D%3D'],
 ['TORNEIRA PAREDE BC MV TIVOLI PT/CR',32.9,'banheiro','2EH%2BA2uMkCSMNYbfe%2BZ9qQ%3D%3D'],
 ['TORNEIRA PAREDE BICA MOVEL PAREDE COLOR PRE SINK 1/4 V. QUAD C72',99.9,'banheiro','4M6eVDnZNC4kLGQEguUtg%3D%3D'],
-['TORNEIRA PAREDE BICA MOVEL PAREDE COLOR PRE SINK 1/4 V. QUAD C72',99.9,'banheiro','jDNFvAMrTMB48GE00Ldn0w%3D%3D'],
 ['TORNEIRA PIA/LAVATORIO LINK MEDIA 1/4 VOLTA',129.9,'banheiro','v1IbyNOu%2BsNcx20Yi%2B0xjg%3D%3D'],
 ['TORNEIRA PRATICA TOUCH ELETRONICA 5500W 220V BRANCO',229.9,'banheiro','AETVWDPtxtyU%2BssJLrZFGA%3D%3D'],
 ['TORNEIRA PRD BC HORIZONTAL TIVOLI BR/CR',49.9,'banheiro','KtEuCSoRWd0An0uOooUzgA%3D%3D'],
@@ -103,63 +99,130 @@ const KYTE_CATALOG=[
 ];
 const SECURITY_PRODUCTS=[
   {
-    id:'alarme-kit-anm24',name:'Kit Alarme Intelbras ANM 24 NET',price:null,category:'alarmes',
+    id:'alarme-kit-anm24',name:'Kit Alarme Intelbras ANM 24 NET',price:899.9,pricePrefix:'A partir de',category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2021-12/central-de-alarme-nao-monitorada-anm-24-net.jpg',
-    description:'Kit residencial econômico: central ANM 24 NET, sensor interno PET, sensores magnéticos, sirene, bateria e controle adicional. Quantidades ajustáveis.',
-    included:['Central ANM 24 NET','Sensor interno PET','Sensores magnéticos','Sirene','Bateria','Controle adicional'],customizable:true,active:true,source:'ROVAN'
+    description:'Kit residencial econômico com sensores com fio, sem fio ou configuração mista. Inclui central, sensor interno PET, sensores magnéticos, sirene, bateria e controle adicional.',
+    included:['Central ANM 24 NET','Sensores com fio e/ou sem fio','Sensor interno PET','Sensores magnéticos','Sirene','Bateria','Controle adicional'],variants:['Com fio','Sem fio','Configuração mista'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'alarme-kit-amt1000',name:'Kit Alarme Intelbras AMT 1000 SMART',price:null,category:'alarmes',
+    id:'alarme-kit-amt1000',name:'Kit Alarme Intelbras AMT 1000 SMART',price:999.9,pricePrefix:'A partir de',category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2023-04/central-de-alarme-smart-amt-1000-smart.jpg',
-    description:'Solução smart residencial com central monitorada, sensor interno PET, sensores magnéticos, sirene, bateria e controle adicional. Quantidades ajustáveis.',
-    included:['Central AMT 1000 SMART','Sensor interno PET','Sensores magnéticos','Sirene','Bateria','Controle adicional'],customizable:true,active:true,source:'ROVAN'
+    description:'Solução smart residencial com sensores com fio, sem fio ou configuração mista. Inclui central monitorada, sensores, sirene, bateria e controle adicional.',
+    included:['Central AMT 1000 SMART','Sensores com fio e/ou sem fio','Sensor interno PET','Sensores magnéticos','Sirene','Bateria','Controle adicional'],variants:['Com fio','Sem fio','Configuração mista'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'alarme-kit-amt8000',name:'Kit Alarme Intelbras AMT 8000 sem fio',price:null,category:'alarmes',
+    id:'alarme-kit-amt8000',name:'Kit Alarme Intelbras AMT 8000 sem fio',price:2299.9,pricePrefix:'A partir de',category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2021-04/sistema-8000-sistema-de-alarme-sem-fio.jpg',
     description:'Linha premium totalmente sem fio: central AMT 8000, sensor PET, sensor magnético, sirene, bateria e controle adicional da família 8000.',
     included:['Central AMT 8000','Sensor PET linha 8000','Sensores magnéticos XAS 8000','Sirene XSS 8000','Bateria','Controle adicional XAC 8000'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'sensor-pet-interno',name:'Sensor interno PET',price:null,category:'alarmes',
+    id:'alarme-kit-hikvision-ax-home',name:'Kit Alarme Hikvision AX HOME DS-PA201P-KIT-16WB',price:699.9,pricePrefix:'A partir de',category:'alarmes',
+    image:'assets/kit-alarme-hikvision.webp',
+    description:'Kit de entrada sem fio com controle pelo aplicativo Hik-Connect. O conjunto inicial considera central, sensor de movimento, sensor magnético e controle; sirene e sensores adicionais podem ser incluídos.',
+    included:['Central AX HOME','Sensor de movimento sem fio','Sensor magnético sem fio','Controle remoto','Bateria de emergência da central'],variants:['Até 16 zonas, conforme o modelo','Wi-Fi','Expansão sem fio'],customizable:true,active:true,source:'ROVAN'
+  },
+  {
+    id:'alarme-kit-agl-izzy',name:'Kit Alarme AGL Izzy Touch Wi-Fi',price:699.9,pricePrefix:'A partir de',category:'alarmes',
+    image:'assets/kit-alarme-agl.jpg',
+    description:'Solução residencial AGL com central Wi-Fi, sensores sem fio e controle pelo aplicativo AGL Home. A compatibilidade dos acessórios é confirmada antes da compra.',
+    included:['Central Izzy Touch Wi-Fi','Sensor de movimento','2 sensores de porta/janela','Controle remoto','Bateria interna da central'],variants:['Sensores AGL 433 MHz','Aplicativo AGL Home','Expansão sem fio'],customizable:true,active:true,source:'ROVAN'
+  },
+  {
+    id:'motor-deslizante-14',name:'Motor para portão deslizante 1/4 HP — residencial',price:699.9,pricePrefix:'A partir de',category:'portoes',
+    image:'assets/motor-deslizante.png',
+    description:'Solução para portão de correr residencial e baixo fluxo. Peso, comprimento, estado dos trilhos e quantidade de ciclos são confirmados antes da escolha.',
+    included:['Motor e central compatível','2 controles remotos','Fim de curso','Cremalheira conforme o vão'],variants:['Garen','PPA','AGL','Contel','Wi-Fi opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'motor-deslizante-13',name:'Motor para portão deslizante 1/3 HP — semirrápido',price:899.9,pricePrefix:'A partir de',category:'portoes',
+    image:'assets/motor-deslizante.png',
+    description:'Para portão deslizante mais pesado ou com maior frequência de uso. A velocidade real depende do modelo, peso e curso do portão.',
+    included:['Motor e central compatível','2 controles remotos','Fim de curso','Cremalheira conforme o vão'],variants:['Garen','PPA','AGL','Contel','Semirrápido','Wi-Fi opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'motor-basculante-14',name:'Motor para portão basculante 1/4 HP — residencial',price:899.9,pricePrefix:'A partir de',category:'portoes',
+    image:'assets/motor-basculante.png',
+    description:'Automatizador para portão basculante residencial leve e balanceado. Curso do acionador, lado de instalação e estrutura são definidos no local.',
+    included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],variants:['Garen','PPA','AGL','Contel','Wi-Fi opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'motor-basculante-13',name:'Motor para portão basculante 1/3 HP — semirrápido',price:1199.9,pricePrefix:'A partir de',category:'portoes',
+    image:'assets/motor-basculante.png',
+    description:'Para basculante mais pesado ou de uso mais frequente. O portão precisa estar estruturalmente íntegro, alinhado e corretamente balanceado.',
+    included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],variants:['Garen','PPA','AGL','Contel','Semirrápido','Wi-Fi opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'sensor-pet-interno',name:'Sensor interno PET',price:149.9,category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2022-03/sensor-de-movimento-infravermelho-passivo-sem-fio-ivp-1000-pet-smart.jpg',
     description:'Para ambientes internos, instalado alto no canto e direcionado para a área protegida. Modelo definido conforme a central.',
     placement:'internal',placementLabel:'No canto interno, cerca de 2,1 m',active:true,source:'ROVAN'
   },
   {
-    id:'sensor-magnetico-branco',name:'Sensor magnético sem fio — branco',price:null,category:'alarmes',
+    id:'sensor-magnetico-branco',name:'Sensor magnético sem fio — branco',price:79.9,category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2020-09/XAS%204000%20Smart.jpg',
     description:'Opção econômica para detectar abertura de portas e janelas. As duas peças ficam alinhadas entre a folha e o marco.',
     placement:'opening',placementLabel:'Na porta ou janela, com as peças alinhadas',active:true,source:'ROVAN'
   },
   {
-    id:'sensor-magnetico-preto',name:'Sensor magnético sem fio — preto',price:null,category:'alarmes',
+    id:'sensor-magnetico-preto',name:'Sensor magnético sem fio — preto',price:89.9,category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2020-09/XAS%204000%20Smart.jpg',
     description:'Versão preta para esquadrias e portas escuras. O modelo econômico ou supervisionado é escolhido conforme a central.',
     placement:'opening',placementLabel:'Na porta ou janela, com as peças alinhadas',active:true,source:'ROVAN'
   },
   {
-    id:'sensor-externo',name:'Sensor de movimento externo',price:null,category:'alarmes',
+    id:'sensor-externo',name:'Sensor de movimento externo',price:699.9,category:'alarmes',
     image:'https://backend.intelbras.com/sites/default/files/2026-01/443276_AF_Flyer-Digital_IVP-3000-MW-EX_02.jpg',
     description:'Proteção para pátio, corredor lateral ou acesso coberto. O modelo é definido conforme a central e as condições do local.',
     placement:'external',placementLabel:'Na área externa, cerca de 2 m e fora do sol direto',active:true,source:'ROVAN'
   },
   {
-    id:'cftv-kit-4',name:'Kit CFTV com 4 câmeras',price:null,category:'cftv',image:'assets/kit-cftv.jpg',
+    id:'cftv-kit-4',name:'Kit CFTV com 4 câmeras',price:1399.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
     description:'Kit dimensionado, montado e configurado pela ROVAN. Pode ser instalado por nossa equipe ou entregue pronto com suporte profissional.',
     included:['4 câmeras','Gravador compatível','HD de 500 GB','Fonte e conexões','Cabeamento conforme o local','Configuração e orientação'],
     variants:['Analógico 1 MP','Analógico 2 MP Full Color','IP'],customizable:true,customType:'cftv',active:true,source:'ROVAN'
   },
   {
-    id:'cftv-kit-8',name:'Kit CFTV com 8 câmeras',price:null,category:'cftv',image:'assets/kit-cftv.jpg',
+    id:'cftv-kit-8',name:'Kit CFTV com 8 câmeras',price:2599.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
     description:'Cobertura ampliada para residência ou pequeno negócio. A tecnologia e o armazenamento são definidos após entender o local.',
     included:['8 câmeras','Gravador compatível','HD de 500 GB','Fonte e conexões','Cabeamento conforme o local','Configuração e orientação'],
     variants:['Analógico 1 MP','Analógico 2 MP Full Color','IP'],customizable:true,customType:'cftv',active:true,source:'ROVAN'
   },
   {
+    id:'icsee-wifi-interna',name:'Câmera Wi-Fi interna iCSee',price:149.9,category:'cftv',image:'assets/icsee-wifi.png',
+    description:'Câmera interna com giro, áudio bidirecional, detecção de movimento e acesso pelo aplicativo iCSee. Opção de bom custo-benefício utilizada pela ROVAN.',
+    variants:['Wi-Fi 2,4 GHz','Uso interno','Cartão microSD opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'icsee-giroflex',name:'Câmera Wi-Fi externa iCSee com giroflex e sirene',price:249.9,category:'cftv',image:'assets/icsee-giroflex.png',
+    description:'Modelo externo com movimento PTZ, luz de alerta, sirene e áudio bidirecional. Indicado para entrada, pátio e corredor com bom alcance de Wi-Fi.',
+    variants:['Wi-Fi 2,4 GHz','Uso externo','Alerta luminoso e sonoro'],active:true,source:'ROVAN'
+  },
+  {
+    id:'icsee-dupla',name:'Câmera Wi-Fi iCSee com duas lentes',price:299.9,category:'cftv',image:'assets/icsee-dupla.png',
+    description:'Duas lentes para acompanhar uma área ampla e manter um segundo enquadramento. A combinação de lentes e resolução varia conforme o modelo.',
+    variants:['Wi-Fi 2,4 GHz','Duas lentes','Visão noturna'],active:true,source:'ROVAN'
+  },
+  {
+    id:'icsee-solar-wifi',name:'Câmera solar Wi-Fi iCSee',price:499.9,pricePrefix:'A partir de',category:'cftv',image:'assets/icsee-solar-wifi.png',
+    description:'Solução com painel solar para locais sem tomada próxima, desde que haja sinal Wi-Fi estável no ponto de instalação.',
+    variants:['Painel solar','Wi-Fi 2,4 GHz','Bateria interna'],active:true,source:'ROVAN'
+  },
+  {
+    id:'icsee-solar-4g',name:'Câmera solar 4G/GPRS iCSee',price:749.9,pricePrefix:'A partir de',category:'cftv',image:'assets/icsee-solar-4g.png',
+    description:'Para locais sem internet fixa e sem tomada. Usa chip compatível e plano de dados; a cobertura da operadora precisa ser confirmada no local.',
+    variants:['Painel solar','Chip 4G/GPRS','Plano de dados não incluso'],active:true,source:'ROVAN'
+  },
+  {
     id:'cftv-projeto',name:'Solução CFTV personalizada',price:null,category:'cftv',image:'assets/kit-cftv.jpg',
     description:'Para mais de 8 câmeras, lojas, comércio e indústria. Fazemos levantamento do local, definimos a infraestrutura e apresentamos uma proposta sob medida.',
     projectOnly:true,active:true,source:'ROVAN'
+  },
+  {
+    id:'kit-primeira-mudanca',name:'Kit Primeira Mudança - apartamento completo',price:799.9,pricePrefix:'A partir de',category:'essenciais',image:'assets/kit-primeira-mudanca.png',
+    description:'Base para apartamento com cozinha, corredor, dois quartos, banheiro, lavanderia, sacada e sala. A ROVAN confirma tensão, pontos existentes e quantidades antes da compra.',
+    included:['8 pontos de iluminação com plafon/soquete e LED','Luz quente nos quartos e sala; neutra nas áreas de tarefa','Extensão ou filtro de linha','Kit básico de ferramentas','Chuveiro e conexões compatíveis','Itens iniciais de banheiro e lavanderia'],
+    variants:['Ajustável por ambiente','Produtos confirmados antes da compra','Instalação orçada separadamente'],active:true,source:'ROVAN'
   }
 ];
 const DEFAULT_PRODUCTS=[...SECURITY_PRODUCTS,...KYTE_CATALOG.map(([name,price,category,image],index)=>({
