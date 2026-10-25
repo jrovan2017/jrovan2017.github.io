@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ROVAN: produtos e instalação para deixar sua casa nova pronta, organizada e segura.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#102a43">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ROVAN — Você escolhe. A gente instala.">
+  <meta property="og:description" content="Produtos, segurança eletrônica e instalação para deixar sua casa funcionando desde o primeiro dia.">
+  <meta property="og:url" content="https://rovan-primeira-casa.ademiralvescontabili.chatgpt.site/">
+  <meta property="og:image" content="https://rovan-primeira-casa.ademiralvescontabili.chatgpt.site/assets/logo-rovan.png">
+  <title>ROVAN — Sua casa pronta e protegida</title>
+  <link rel="icon" type="image/png" href="assets/logo-rovan.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="ROVAN, início">
+      <img class="brand-logo" src="assets/logo-rovan.png" alt="">
+      <span><strong>ROVAN</strong><small>Casa pronta. Vida tranquila.</small></span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#solucoes">Casa nova</a>
+      <a href="#catalogo">Loja</a>
+      <a href="#instalacao">Instalação</a>
+      <a href="#pagamento">Pagamento</a>
+      <a href="#como-funciona">Como funciona</a>
+    </nav>
+    <button class="cart-button" id="openCart" type="button" aria-label="Abrir carrinho">
+      <span>Carrinho</span><b id="cartCount">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <span class="eyebrow">VOCÊ ESCOLHE. A ROVAN INSTALA.</span>
+        <h1>Casa nova.<br><em>Tudo funcionando.</em></h1>
+        <p>Você escolhe o que precisa. A ROVAN fornece e instala — da primeira lâmpada à segurança da casa.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#catalogo">Explorar produtos</a>
+          <button class="button secondary" type="button" data-open-planner>Montar minha solução</button>
+        </div>
+        <div class="trust-row" aria-label="Diferenciais">
+          <span>✓ Escolha orientada</span>
+          <span>✓ Produto certo para o local</span>
+          <span>✓ Instalação como opção principal</span>
+          <span>✓ Atendimento no Vale dos Sinos e região</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="house-card">
+          <div class="house-roof"></div>
+          <div class="house-body">
+            <div class="window"><i></i><i></i><i></i><i></i></div>
+            <div class="door"></div>
+            <span class="camera">●</span>
+          </div>
+          <span class="signal s1"></span><span class="signal s2"></span><span class="signal s3"></span>
+        </div>
+        <div class="floating-tag tag-one"><span>◉</span> Casa nova e segura</div>
+        <div class="floating-tag tag-two"><span>⌂</span> Tudo instalado</div>
+      </div>
+    </section>
+
+    <section class="section intro" id="solucoes">
+      <div class="section-heading">
+        <span class="eyebrow">COMECE PELO QUE IMPORTA</span>
+        <h2>Um caminho simples para equipar sua casa</h2>
+        <p>Organizamos os produtos por necessidade para você descobrir, escolher e instalar sem complicação.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar start"><span class="pillar-number">01</span><div class="icon">⌂</div><h3>Primeiros essenciais</h3><p>Os itens que fazem falta logo na chegada: tomadas, extensões, ferramentas e acessórios.</p><button type="button" data-filter-link="essenciais">Ver essenciais →</button></article>
+        <article class="pillar light"><span class="pillar-number">02</span><div class="icon">☼</div><h3>Iluminação e elétrica</h3><p>Lâmpadas, painéis e conexões para deixar cada ambiente pronto para uso.</p><button type="button" data-filter-link="iluminacao">Ver iluminação →</button></article>
+        <article class="pillar bath"><span class="pillar-number">03</span><div class="icon">≋</div><h3>Banheiro e hidráulica</h3><p>Chuveiro, torneira e acessórios para ter conforto desde o primeiro dia.</p><button type="button" data-filter-link="banheiro">Ver produtos →</button></article>
+        <article class="pillar safe"><span class="pillar-number">04</span><div class="icon">●</div><h3>Casa segura</h3><p>Câmeras e alarmes instalados pela ROVAN ou em kits prontos para você mesmo instalar com suporte profissional.</p><button type="button" data-open-planner>Conhecer segurança →</button></article>
+      </div>
+      <div class="purchase-model">
+        <div><span>CAMINHO PRINCIPAL</span><h3>Produto + instalação ROVAN</h3><p>Você escolhe. Nós confirmamos o modelo correto, fornecemos o produto e deixamos tudo funcionando.</p></div>
+        <div><span>PARA CÂMERAS E ALARMES</span><h3>Kit pronto para fazer você mesmo</h3><p>A ROVAN monta e configura o kit, entrega no local e oferece orientação profissional para tirar dúvidas durante a instalação.</p></div>
+      </div>
+      <aside class="rovan-guide">
+        <img src="assets/apresentador-rovan.png" alt="Apresentador da ROVAN">
+        <div><span class="eyebrow">DICA DA ROVAN</span><h3>Na dúvida, mande uma foto.</h3><p>A gente ajuda você a escolher o produto certo para o local antes da compra — com orientação de quem também instala.</p></div>
+        <button class="button primary" type="button" data-open-planner>Quero orientação</button>
+      </aside>
+    </section>
+
+    <section class="section catalog" id="catalogo">
+      <div class="catalog-head">
+        <div>
+          <span class="eyebrow">SEU CARDÁPIO DE SOLUÇÕES</span>
+          <h2>Escolha pela sua necessidade</h2>
+          <p class="catalog-lead">Comece por uma solução pronta, personalize os itens ou conte com a ROVAN para montar a melhor combinação para o seu espaço.</p>
+        </div>
+        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar produto ou solução" aria-label="Buscar no catálogo"></label>
+      </div>
+      <div class="filters" id="filters" aria-label="Filtrar produtos">
+        <button class="active" type="button" data-filter="todos">Todos</button>
+        <button type="button" data-filter="essenciais">Elétrica e utilidades</button>
+        <button type="button" data-filter="iluminacao">Iluminação</button>
+        <button type="button" data-filter="banheiro">Banheiro e hidráulica</button>
+        <button type="button" data-filter="alarmes">Alarmes</button>
+        <button type="button" data-filter="cftv">CFTV</button>
+      </div>
+      <aside class="category-tip" id="categoryTip" aria-live="polite">
+        <img src="assets/apresentador-rovan.png" alt="">
+        <div><span>DICA DA ROVAN</span><strong id="categoryTipTitle"></strong><p id="categoryTipText"></p></div>
+        <button type="button" data-open-planner>Tire sua dúvida →</button>
+      </aside>
+      <p class="catalog-count" id="catalogCount"></p>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>Nenhum item encontrado. Tente outra busca.</p>
+    </section>
+
+    <section class="planner-banner">
+      <img class="planner-presenter" src="assets/apresentador-rovan-apresenta.png" alt="Apresentador da ROVAN mostrando as opções">
+      <div>
+        <span class="eyebrow light">NÃO SABE POR ONDE COMEÇAR?</span>
+        <h2>Conte seu momento.<br>Nós montamos o caminho.</h2>
+      </div>
+      <p>Responda algumas perguntas rápidas e receba uma lista inicial de produtos e serviços para conversar com a ROVAN.</p>
+      <button class="button accent" type="button" data-open-planner>Montar minha lista →</button>
+    </section>
+
+    <section class="section service-prices" id="instalacao">
+      <div class="service-heading-wrap">
+        <div class="section-heading">
+          <span class="eyebrow">INSTALAÇÃO PROFISSIONAL</span>
+          <h2>Referências claras desde o começo</h2>
+          <p>Valores iniciais de mão de obra para instalações simples, em ponto existente e com acesso normal. Em uma primeira mudança com vários itens, montamos um preço fechado para o conjunto.</p>
+        </div>
+        <img class="service-presenter" src="assets/apresentador-rovan-instalacao.png" alt="Técnico ROVAN apresentando uma instalação elétrica">
+      </div>
+      <div class="price-grid">
+        <article><span>Atendimento mínimo</span><strong>R$ 120</strong><small>visita com execução de serviço simples</small></article>
+        <article><span>Luminária ou painel</span><strong>a partir de R$ 110</strong><small>por ponto existente</small></article>
+        <article><span>Chuveiro elétrico</span><strong>a partir de R$ 200</strong><small>troca em circuito adequado</small></article>
+        <article><span>Torneira simples</span><strong>a partir de R$ 120</strong><small>troca no mesmo ponto</small></article>
+        <article><span>Câmera Wi‑Fi</span><strong>a partir de R$ 190</strong><small>com ponto elétrico disponível</small></article>
+        <article><span>Sistema de alarme</span><strong>a partir de R$ 900</strong><small>configuração básica residencial</small></article>
+      </div>
+      <p class="price-note">Materiais adicionais, passagem de cabos, ponto novo, adequação do quadro, trabalho em altura e deslocamento são avaliados antes da confirmação. O orçamento final é informado antes do serviço.</p>
+    </section>
+
+    <section class="section payment-section" id="pagamento">
+      <div class="section-heading">
+        <span class="eyebrow">VOCÊ ESCOLHE O MELHOR CAMINHO</span>
+        <h2>Compre do seu jeito. A ROVAN cuida do resto.</h2>
+        <p>Sem estoque parado e sem compra no escuro: primeiro confirmamos a solução, depois combinamos produto, instalação e pagamento.</p>
+      </div>
+      <div class="payment-flow">
+        <article><span class="payment-icon">01</span><div><span class="payment-kicker">MAIS LIBERDADE</span><h3>Compra assistida</h3><p>Para equipamentos de maior valor, ajudamos você a escolher e comprar direto do fornecedor. A ROVAN recebe, confere e instala.</p></div></article>
+        <article><span class="payment-icon">02</span><div><span class="payment-kicker">MAIS PRATICIDADE</span><h3>Produto + instalação</h3><p>Confirmamos a disponibilidade, você aprova e paga o pedido, e nós compramos, entregamos e deixamos funcionando.</p></div></article>
+        <article><span class="payment-icon">03</span><div><span class="payment-kicker">PARA NECESSIDADES MAIORES</span><h3>Solução personalizada</h3><p>A pré-vistoria ajuda a definir materiais e mão de obra. Você recebe tudo separado, com etapas e valores claros.</p></div></article>
+      </div>
+      <div class="payment-assurance"><span>✓ Confirmação antes do pagamento</span><span>✓ Materiais e mão de obra separados</span><span>✓ Pix ou cartão conforme a proposta</span></div>
+      <details class="payment-details">
+        <summary>Ver detalhes de pagamento, visita e garantia</summary>
+        <div><p><strong>Pagamento:</strong> equipamentos sob encomenda são pagos após a confirmação. Nas soluções maiores, os materiais são antecipados e a mão de obra segue as etapas do orçamento.</p><p><strong>Visita técnica:</strong> quando necessária, o valor é informado antes do agendamento e pode virar crédito na contratação, conforme a proposta.</p><p><strong>Tudo documentado:</strong> disponibilidade, prazos, garantia, alterações e cancelamento ficam registrados antes da compra.</p><p><strong>Segurança eletrônica:</strong> a ROVAN vende, instala, configura e orienta. O acesso final fica com o cliente; não oferecemos monitoramento remoto.</p></div>
+      </details>
+    </section>
+
+    <section class="section how" id="como-funciona">
+      <div class="section-heading">
+        <span class="eyebrow">DO CLIQUE À INSTALAÇÃO</span>
+        <h2>Simples do começo ao fim</h2>
+      </div>
+      <ol class="steps">
+        <li><b>1</b><div><h3>Você escolhe</h3><p>Adicione os produtos que precisa e indique a instalação.</p></div></li>
+        <li><b>2</b><div><h3>A gente confirma</h3><p>Validamos modelo, local, valor do serviço e disponibilidade.</p></div></li>
+        <li><b>3</b><div><h3>Deixamos funcionando</h3><p>Fornecemos o produto e realizamos a instalação combinada.</p></div></li>
+      </ol>
+      <div class="survey-callout"><img class="survey-presenter" src="assets/apresentador-rovan-trena.png" alt="Técnico ROVAN fazendo a medição do local"><div><span class="eyebrow">SOLUÇÃO PERSONALIZADA</span><h3>Antecipe a vistoria com fotos do local</h3><p>As respostas ajudam a estimar a mão de obra, prever os materiais e descobrir se tudo pode ser orientado à distância ou se vale agendar uma visita.</p></div><button class="button primary" type="button" data-open-survey>Iniciar pré-vistoria</button></div>
+    </section>
+
+    <section class="cta">
+      <span class="eyebrow light">ROVAN</span>
+      <h2>Você muda.<br>Nós deixamos tudo pronto.</h2>
+      <button class="button white" type="button" data-open-planner>Montar minha solução</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand footer-brand"><img class="brand-logo" src="assets/logo-rovan.png" alt=""><span><strong>ROVAN</strong><small>Casa pronta. Vida tranquila.</small></span></div>
+    <p>Atendimento em São Leopoldo, Portão, Novo Hamburgo, Estância Velha, Ivoti e Capela de Santana.</p>
+    <button type="button" id="openAdmin">Gestão do catálogo</button>
+  </footer>
+
+  <aside class="drawer" id="cartDrawer" aria-hidden="true" aria-label="Carrinho">
+    <div class="drawer-head"><div><span class="eyebrow">SEU PEDIDO</span><h2>Carrinho</h2></div><button type="button" data-close aria-label="Fechar">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>⌂</span><p>Seu carrinho está vazio.</p><small>Escolha produtos ou monte uma solução.</small></div>
+    <div class="cart-summary" id="cartSummary">
+      <label class="install-toggle"><input type="checkbox" id="installRequest" checked><span>Incluir instalação profissional (recomendado)</span></label>
+      <label class="service-location"><span>Onde será a entrega ou instalação?</span><input id="serviceLocation" type="text" placeholder="Cidade e bairro"></label>
+      <label class="payment-choice"><span>Como prefere pagar após a confirmação?</span><select id="paymentPreference"><option value="Quero receber as opções no orçamento">Quero receber as opções no orçamento</option><option value="Pix após confirmação">Pix após confirmação</option><option value="Link de cartão após confirmação">Link de cartão após confirmação</option><option value="Pagamento presencial na entrega/instalação">Pagamento presencial na entrega/instalação</option><option value="Solução personalizada: materiais antecipados e mão de obra por etapas">Solução personalizada: materiais antecipados e mão de obra por etapas</option></select></label>
+      <div><span>Subtotal dos produtos</span><strong id="cartTotal">R$ 0,00</strong></div>
+      <small>Este é um pedido de confirmação, não uma cobrança. A ROVAN verifica disponibilidade e envia as condições antes de receber qualquer valor.</small>
+      <button class="button primary full" type="button" id="checkoutButton">Solicitar pelo WhatsApp</button>
+    </div>
+  </aside>
+
+  <div class="modal" id="plannerModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="plannerTitle">
+    <div class="modal-card">
+      <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="eyebrow">ROVAN GUIA</span><h2 id="plannerTitle">O que você precisa agora?</h2>
+      <p>Escolha quantas opções quiser. Vamos preparar uma sugestão inicial.</p>
+      <div class="choice-grid">
+        <label><input type="checkbox" value="essenciais"><span><b>⌂</b><strong>Estou começando</strong><small>Quero os itens essenciais</small></span></label>
+        <label><input type="checkbox" value="iluminacao"><span><b>☼</b><strong>Iluminação e elétrica</strong><small>Lâmpadas, tomadas e acessórios</small></span></label>
+        <label><input type="checkbox" value="banheiro"><span><b>≋</b><strong>Banheiro e hidráulica</strong><small>Conforto desde o primeiro dia</small></span></label>
+        <label><input type="checkbox" value="alarmes"><span><b>◉</b><strong>Quero um alarme</strong><small>Kit completo e personalizável</small></span></label>
+        <label><input type="checkbox" value="cftv"><span><b>◉</b><strong>Quero câmeras</strong><small>Kits de 4 ou 8 câmeras</small></span></label>
+        <label><input type="checkbox" value="instalacao"><span><b>⌁</b><strong>Preciso de instalação</strong><small>Já tenho alguns produtos</small></span></label>
+      </div>
+      <button class="button primary full" type="button" id="plannerResult">Ver minha sugestão</button>
+    </div>
+  </div>
+
+  <div class="modal" id="adminModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="modal-card admin-card">
+      <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="eyebrow">CATÁLOGO ROVAN</span><h2 id="adminTitle">Gestão dos produtos</h2>
+      <p>Cadastre, edite e organize produtos. Esta versão fica salva neste navegador; use a exportação como backup até conectarmos a área administrativa online.</p>
+      <div class="admin-summary"><strong id="adminCount"></strong><span>Venda sob consulta, sem exibir estoque.</span></div>
+      <h3 id="formTitle">Adicionar produto</h3>
+      <form id="productForm" class="admin-form">
+        <input type="hidden" id="editingId">
+        <input name="name" required placeholder="Nome do produto">
+        <input name="price" inputmode="decimal" placeholder="Preço: 59,90 (vazio = sob consulta)">
+        <select name="category" required><option value="essenciais">Primeiros essenciais</option><option value="iluminacao">Iluminação e elétrica</option><option value="banheiro">Banheiro e hidráulica</option><option value="alarmes">Alarmes</option><option value="cftv">CFTV</option><option value="seguranca">Casa segura</option><option value="kits">Kits</option></select>
+        <input name="image" inputmode="url" placeholder="Link da imagem">
+        <label class="file-field">Ou escolher imagem<input name="imageFile" type="file" accept="image/*"></label>
+        <textarea name="description" placeholder="Descrição curta (pode preencher depois)"></textarea>
+        <div class="form-buttons"><button class="button primary" id="saveProduct" type="submit">Adicionar produto</button><button type="button" id="cancelEdit" hidden>Cancelar</button><button type="button" class="danger" id="deleteProduct" hidden>Excluir</button></div>
+      </form>
+      <div class="admin-actions">
+        <button type="button" id="exportCatalog">Exportar catálogo</button>
+        <label class="import-label">Importar catálogo<input type="file" id="importCatalog" accept="application/json"></label>
+        <button type="button" id="resetCatalog">Restaurar catálogo da Kyte</button>
+      </div>
+      <div class="admin-list" id="adminList"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="customizeModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="customizeTitle">
+    <div class="modal-card customize-card">
+      <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="eyebrow">MONTE COM A ROVAN</span>
+      <h2 id="customizeTitle">Personalizar kit</h2>
+      <p id="customizeIntro">Escolha uma configuração inicial. Antes da compra, a ROVAN confirma equipamentos, compatibilidade e instalação.</p>
+      <form id="customizeForm" class="customize-form">
+        <input type="hidden" name="productId">
+        <div id="alarmCustomizeFields">
+          <label><span>Sensores de porta/janela</span><input type="number" name="openingSensors" min="1" max="32" value="2"></label>
+          <label><span>Sensores internos PET</span><input type="number" name="internalSensors" min="0" max="16" value="1"></label>
+          <label><span>Sensores externos</span><input type="number" name="externalSensors" min="0" max="16" value="0"></label>
+          <label><span>Controles adicionais</span><input type="number" name="extraRemotes" min="1" max="16" value="1"></label>
+          <div class="included-note">Todo kit já considera sirene e bateria. O modelo de cada acessório acompanha a família da central escolhida.</div>
+        </div>
+        <div id="cftvCustomizeFields" hidden>
+          <fieldset><legend>Tecnologia das câmeras</legend>
+            <label><input type="radio" name="cftvTechnology" value="Analógico 1 MP" checked><span>Analógico 1 MP <small>opção econômica</small></span></label>
+            <label><input type="radio" name="cftvTechnology" value="Analógico 2 MP Full Color"><span>Analógico 2 MP Full Color <small>mais definição e cores à noite</small></span></label>
+            <label><input type="radio" name="cftvTechnology" value="IP"><span>IP <small>rede, expansão e recursos avançados</small></span></label>
+          </fieldset>
+          <label><span>Câmeras dome — áreas internas/protegidas</span><input type="number" name="domeCameras" min="0" max="8" value="2"></label>
+          <label><span>Câmeras bullet — áreas externas/perímetro</span><input type="number" name="bulletCameras" min="0" max="8" value="2"></label>
+          <div class="included-note"><strong>Incluso:</strong> HD de 500 GB. O tempo estimado de gravação será confirmado conforme a tecnologia e a configuração escolhidas.</div>
+        </div>
+        <button class="button primary full" type="submit">Adicionar configuração ao pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="surveyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="surveyTitle">
+    <div class="modal-card survey-card">
+      <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="eyebrow">PRÉ-VISTORIA ROVAN</span><h2 id="surveyTitle">Conte como é o local</h2>
+      <p>As respostas ajudam no primeiro diagnóstico, na estimativa inicial de mão de obra e na lista de materiais. Não substituem o orçamento final nem a visita quando ela for necessária.</p>
+      <form id="surveyForm" class="survey-form">
+        <label><span>Cidade</span><input name="city" required placeholder="Ex.: São Leopoldo"></label>
+        <label><span>Bairro</span><input name="neighborhood" required placeholder="Ex.: Centro"></label>
+        <label><span>Tipo de solução</span><select name="projectType" required><option value="">Selecione</option><option>Alarme</option><option>CFTV / câmeras</option><option>Motor de portão</option><option>Controle de acesso / fechadura</option><option>Casa inteligente</option><option>Outro</option></select></label>
+        <label><span>Tipo de imóvel</span><select name="propertyType" required><option value="">Selecione</option><option>Casa</option><option>Apartamento</option><option>Loja / comércio</option><option>Indústria</option><option>Condomínio</option></select></label>
+        <label><span>Acesso ao forro ou telhado</span><select name="ceilingAccess"><option>Não sei informar</option><option>Tem acesso fácil ao forro</option><option>Será necessário subir no forro</option><option>Pode ser necessário retirar telhas</option><option>Não existe acesso ao forro</option></select></label>
+        <label><span>Passagem para a fiação</span><select name="wiringRoute"><option>Não sei informar</option><option>Existe tubulação livre</option><option>Existe tubulação, mas precisa verificar</option><option>Será necessária tubulação aparente</option><option>Pode ser necessário cavar</option></select></label>
+        <label><span>Piso no trajeto</span><select name="floorWork"><option>Não se aplica</option><option>Terra / jardim</option><option>Contrapiso</option><option>Piso ou PVS a retirar e reinstalar</option><option>Não sei informar</option></select></label>
+        <label><span>Energia elétrica próxima</span><select name="power"><option>Não sei informar</option><option>Há tomada próxima</option><option>Há ponto elétrico próximo</option><option>Será necessário puxar fiação</option><option>No portão, a elétrica já está pronta</option><option>No portão, será necessário levar energia</option></select></label>
+        <label class="wide"><span>Onde fica o roteador e como é o sinal no local?</span><textarea name="router" placeholder="Ex.: roteador na sala; sinal fraco no portão e no fundo do pátio"></textarea></label>
+        <label class="wide"><span>Observações sobre o percurso, altura ou obstáculos</span><textarea name="notes" placeholder="Ex.: precisa passar pelo forro, retirar duas telhas, instalar tubulação externa..."></textarea></label>
+        <div class="photo-checklist wide">
+          <h3>Fotos recomendadas</h3><p>Escolha imagens nítidas e abertas, além de detalhes quando necessário.</p>
+          <label>Visão geral do local<input type="file" name="photosOverview" accept="image/*" multiple></label>
+          <label>Acesso ao forro ou telhado<input type="file" name="photosCeiling" accept="image/*" multiple></label>
+          <label>Roteador e sinal no local<input type="file" name="photosRouter" accept="image/*" multiple></label>
+          <label>Tomada ou ponto elétrico mais próximo<input type="file" name="photosPower" accept="image/*" multiple></label>
+          <label>Trajeto possível da fiação/tubulação<input type="file" name="photosRoute" accept="image/*" multiple></label>
+          <label>Solo, piso ou PVS que podem ser removidos<input type="file" name="photosGround" accept="image/*" multiple></label>
+        </div>
+        <div class="privacy-note wide">Nesta versão, as fotos ficam somente no seu aparelho. O resumo será preparado para o WhatsApp e você anexará as imagens na conversa.</div>
+        <button class="button primary full wide" type="submit">Preparar resumo para revisar</button>
+        <div class="survey-result wide" id="surveyResult" hidden><h3>Revise antes de enviar</h3><textarea id="surveySummary" readonly></textarea><button type="button" id="copySurvey">Abrir WhatsApp</button><small>A conversa será aberta com o resumo preenchido. Depois, anexe as fotos do local.</small></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="catalog-data.js"></script>
+  <script src="app-v3.js"></script>
+</body>
+</html>
