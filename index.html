@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <header class="topbar">
@@ -86,7 +86,7 @@
         <div><span>PARA CÂMERAS E ALARMES</span><h3>Kit pronto para fazer você mesmo</h3><p>A ROVAN monta e configura o kit, entrega no local e oferece orientação profissional para tirar dúvidas durante a instalação.</p></div>
       </div>
       <aside class="rovan-guide">
-        <img src="assets/apresentador-rovan.png" alt="Apresentador da ROVAN">
+        <img src="assets/apresentador-rovan-loja.png" alt="Apresentador da loja ROVAN com o novo uniforme">
         <div><span class="eyebrow">DICA DA ROVAN</span><h3>Na dúvida, mande uma foto.</h3><p>A gente ajuda você a escolher o produto certo para o local antes da compra — com orientação de quem também instala.</p></div>
         <button class="button primary" type="button" data-open-planner>Quero orientação</button>
       </aside>
@@ -95,34 +95,42 @@
     <section class="section catalog" id="catalogo">
       <div class="catalog-head">
         <div>
-          <span class="eyebrow">SEU CARDÁPIO DE SOLUÇÕES</span>
-          <h2>Escolha pela sua necessidade</h2>
-          <p class="catalog-lead">Comece por uma solução pronta, personalize os itens ou conte com a ROVAN para montar a melhor combinação para o seu espaço.</p>
+          <span class="eyebrow">ROVAN • PRODUTOS E INSTALAÇÃO</span>
+          <h2>Mais do que vender, entregamos funcionando</h2>
+          <p class="catalog-lead">A ROVAN ajuda a escolher o produto adequado, confirma as condições do local e combina o fornecimento com a instalação. Você sabe o que será feito antes de aprovar.</p>
         </div>
-        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar produto ou solução" aria-label="Buscar no catálogo"></label>
+        <label class="search" id="catalogSearch" hidden><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar nesta linha" aria-label="Buscar na linha selecionada"></label>
       </div>
-      <div class="filters" id="filters" aria-label="Filtrar produtos">
-        <button class="active" type="button" data-filter="todos">Todos</button>
-        <button type="button" data-filter="essenciais">Elétrica e utilidades</button>
-        <button type="button" data-filter="iluminacao">Iluminação</button>
-        <button type="button" data-filter="banheiro">Banheiro e hidráulica</button>
-        <button type="button" data-filter="alarmes">Alarmes</button>
-        <button type="button" data-filter="cftv">CFTV</button>
-                <button type="button" data-filter="portoes">Portões</button>
+      <div class="catalog-promise" aria-label="O que a ROVAN entrega">
+        <article><span>01</span><div><strong>Escolha orientada</strong><p>Produto compatível com a necessidade e com o local.</p></div></article>
+        <article><span>02</span><div><strong>Instalação profissional</strong><p>Serviço explicado, executado e testado pela ROVAN.</p></div></article>
+        <article><span>03</span><div><strong>Entrega com suporte</strong><p>Orientação de uso e atendimento para tirar dúvidas.</p></div></article>
       </div>
-      <aside class="category-tip" id="categoryTip" aria-live="polite">
-        <img src="assets/apresentador-rovan.png" alt="">
-        <div><span>DICA DA ROVAN</span><strong id="categoryTipTitle"></strong><p id="categoryTipText"></p></div>
-        <button type="button" data-open-planner>Tire sua dúvida →</button>
-      </aside>
-      <p class="catalog-count" id="catalogCount"></p>
-      <p class="catalog-price-note">Preços-base de referência. Modelo, disponibilidade, materiais adicionais e instalação são confirmados antes do pedido.</p>
-      <div class="product-grid" id="productGrid"></div>
-      <p class="empty-state" id="emptyState" hidden>Nenhum item encontrado. Tente outra busca.</p>
+      <p class="catalog-instruction" id="catalogInstruction">Selecione uma linha para conhecer somente os produtos e serviços relacionados.</p>
+      <div class="filters catalog-lines" id="filters" aria-label="Escolher uma linha de produtos e serviços">
+        <button type="button" data-filter="essenciais"><span>⌁</span><strong>Elétrica e utilidades</strong><small>Tomadas, extensões e itens essenciais</small></button>
+        <button type="button" data-filter="iluminacao"><span>☼</span><strong>Iluminação</strong><small>Lâmpadas, painéis e luminárias</small></button>
+        <button type="button" data-filter="banheiro"><span>≋</span><strong>Banheiro e hidráulica</strong><small>Chuveiros, torneiras e acessórios</small></button>
+        <button type="button" data-filter="alarmes"><span>◉</span><strong>Alarmes</strong><small>Kits, centrais e sensores</small></button>
+        <button type="button" data-filter="cftv"><span>●</span><strong>CFTV e câmeras Wi-Fi</strong><small>Kits e câmeras para cada ambiente</small></button>
+        <button type="button" data-filter="portoes"><span>↔</span><strong>Portões automáticos</strong><small>Motores e soluções de acesso</small></button>
+      </div>
+      <div class="catalog-results" id="catalogResults" hidden>
+        <div class="catalog-selection"><div><span>Linha selecionada</span><strong id="selectedCategoryName"></strong></div><button type="button" id="closeCatalogLine">← Trocar de linha</button></div>
+        <aside class="category-tip" id="categoryTip" aria-live="polite">
+        <img src="assets/apresentador-rovan-loja.png" alt="">
+          <div><span>DICA DA ROVAN</span><strong id="categoryTipTitle"></strong><p id="categoryTipText"></p></div>
+          <button type="button" data-open-planner>Tire sua dúvida →</button>
+        </aside>
+        <p class="catalog-count" id="catalogCount"></p>
+        <p class="catalog-price-note">Preços-base de referência. Modelo, disponibilidade, materiais adicionais e instalação são confirmados antes do pedido.</p>
+        <div class="product-grid" id="productGrid"></div>
+        <p class="empty-state" id="emptyState" hidden>Nenhum item encontrado. Tente outra busca.</p>
+      </div>
     </section>
 
     <section class="planner-banner">
-      <img class="planner-presenter" src="assets/apresentador-rovan-apresenta.png" alt="Apresentador da ROVAN mostrando as opções">
+      <img class="planner-presenter" src="assets/apresentador-rovan-apresenta-loja.png" alt="Apresentador da ROVAN mostrando as opções">
       <div>
         <span class="eyebrow light">NÃO SABE POR ONDE COMEÇAR?</span>
         <h2>Conte seu momento.<br>Nós montamos o caminho.</h2>
@@ -138,7 +146,7 @@
           <h2>A instalação certa aparece junto do produto</h2>
           <p>Cada item do catálogo informa sua própria projeção de mão de obra, o que está incluído e as condições que podem alterar o valor. Assim, você vê somente as informações pertinentes ao que escolheu.</p>
         </div>
-        <img class="service-presenter" src="assets/apresentador-rovan-instalacao.png" alt="Técnico ROVAN apresentando uma instalação elétrica">
+        <img class="service-presenter" src="assets/apresentador-rovan-instalacao-loja.png" alt="Técnico ROVAN apresentando uma instalação elétrica">
       </div>
       <div class="installation-explainer"><strong>Como consultar:</strong><span>Escolha um produto e toque em “Projeção de instalação”. A tela mostrará estimativa, escopo, condições e referências específicas daquele serviço.</span><a href="#catalogo">Ver produtos →</a></div>
     </section>
@@ -328,7 +336,7 @@
 
   <div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="catalog-data.js?v=8"></script>
-  <script src="app-v3.js?v=8"></script>
+  <script src="catalog-data.js?v=9"></script>
+  <script src="app-v3.js?v=9"></script>
 </body>
 </html>

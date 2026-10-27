@@ -177,16 +177,18 @@ const SECURITY_PRODUCTS=[
     placement:'external',placementLabel:'Na área externa, cerca de 2 m e fora do sol direto',active:true,source:'ROVAN'
   },
   {
-    id:'cftv-kit-4',name:'Kit CFTV com 4 câmeras',price:1399.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
-    description:'Kit dimensionado, montado e configurado pela ROVAN. Pode ser instalado por nossa equipe ou entregue pronto com suporte profissional.',
-    included:['4 câmeras','Gravador compatível','HD de 500 GB','Fonte e conexões','Cabeamento conforme o local','Configuração e orientação'],
-    variants:['Analógico 1 MP','Analógico 2 MP Full Color','IP'],customizable:true,customType:'cftv',active:true,source:'ROVAN'
+    id:'cftv-kit-4',name:'Kit CFTV com 4 câmeras',price:1899.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
+    description:'Kit dimensionado, montado e configurado pela ROVAN. O preço muda conforme a tecnologia escolhida; instalação no local é apresentada separadamente.',
+    included:['4 câmeras dome e/ou bullet','DVR ou NVR compatível','HD de 500 GB','Fonte, conectores e cabeamento-base','Configuração e orientação'],
+    variants:['Analógico 1 MP — R$ 1.899,90','Analógico 2 MP Full Color — R$ 2.199,90','IP 2 MP — R$ 3.299,90'],
+    variantPrices:{'Analógico 1 MP':1899.9,'Analógico 2 MP Full Color':2199.9,'IP':3299.9},customizable:true,customType:'cftv',active:true,source:'ROVAN'
   },
   {
-    id:'cftv-kit-8',name:'Kit CFTV com 8 câmeras',price:2599.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
-    description:'Cobertura ampliada para residência ou pequeno negócio. A tecnologia e o armazenamento são definidos após entender o local.',
-    included:['8 câmeras','Gravador compatível','HD de 500 GB','Fonte e conexões','Cabeamento conforme o local','Configuração e orientação'],
-    variants:['Analógico 1 MP','Analógico 2 MP Full Color','IP'],customizable:true,customType:'cftv',active:true,source:'ROVAN'
+    id:'cftv-kit-8',name:'Kit CFTV com 8 câmeras',price:2999.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
+    description:'Cobertura ampliada para residência ou pequeno negócio. O preço muda conforme a tecnologia escolhida; projetos maiores são avaliados separadamente.',
+    included:['8 câmeras dome e/ou bullet','DVR ou NVR compatível','HD de 500 GB','Fonte, conectores e cabeamento-base','Configuração e orientação'],
+    variants:['Analógico 1 MP — R$ 2.999,90','Analógico 2 MP Full Color — R$ 3.599,90','IP 2 MP — R$ 5.499,90'],
+    variantPrices:{'Analógico 1 MP':2999.9,'Analógico 2 MP Full Color':3599.9,'IP':5499.9},customizable:true,customType:'cftv',active:true,source:'ROVAN'
   },
   {
     id:'icsee-wifi-interna',name:'Câmera Wi-Fi interna iCSee',price:149.9,category:'cftv',image:'assets/icsee-wifi.png',
@@ -225,7 +227,56 @@ const SECURITY_PRODUCTS=[
     variants:['Ajustável por ambiente','Produtos confirmados antes da compra','Instalação orçada separadamente'],active:true,source:'ROVAN'
   }
 ];
-const DEFAULT_PRODUCTS=[...SECURITY_PRODUCTS,...KYTE_CATALOG.map(([name,price,category,image],index)=>({
+const INFRASTRUCTURE_PRODUCTS=[
+  {id:'tv-suporte-fixo',name:'Suporte fixo universal para TV',price:69.9,pricePrefix:'A partir de',category:'essenciais',image:'assets/suporte-tv.svg',description:'Suporte de parede para manter a TV próxima da parede. A ROVAN confirma tamanho, peso, padrão VESA, tipo de parede e parafusos antes da instalação.',variants:['Modelos para TVs pequenas e médias','Versões reforçadas para telas grandes','VESA e peso confirmados antes da compra'],active:true,source:'ROVAN'},
+  {id:'tv-suporte-articulado',name:'Suporte articulado para TV',price:229.9,pricePrefix:'A partir de',category:'essenciais',image:'assets/suporte-tv.svg',description:'Suporte com giro, inclinação e afastamento da parede. A capacidade precisa considerar o peso da TV, o padrão VESA e o esforço adicional do braço aberto.',variants:['Faixa de 26 a 75 polegadas conforme o modelo','VESA até 400 × 400 em opções de referência','Parede e fixadores avaliados'],active:true,source:'ROVAN'},
+  {id:'tv-antena-interna',name:'Antena digital interna',price:59.9,pricePrefix:'A partir de',category:'essenciais',image:'assets/antena-digital.svg',description:'Antena compacta para locais com sinal digital suficiente. A posição, o comprimento do cabo e a necessidade de amplificação são definidos após teste no ambiente.',variants:['Modelo passivo','Modelo amplificado quando necessário','Cabo coaxial conforme o local'],active:true,source:'ROVAN'},
+  {id:'tv-antena-externa',name:'Antena digital externa',price:129.9,pricePrefix:'A partir de',category:'essenciais',image:'assets/antena-digital.svg',description:'Antena externa para melhorar a recepção de TV digital. Direção, altura, estrutura de fixação, aterramento e passagem do cabo são avaliados antes do serviço.',variants:['UHF/HDTV conforme cobertura','Mastro e cabo sob medida','Amplificador somente quando tecnicamente indicado'],active:true,source:'ROVAN'},
+  {id:'infra-eletroduto-34',name:'Kit eletroduto aparente 3/4 pol. — branco ou preto',price:189.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/eletroduto-aparente.svg',description:'Sistema aparente organizado para proteger fios e cabos sem quebrar a parede. O kit-base é dimensionado por trajeto e mantém todos os acessórios da mesma linha e bitola.',included:['1 barra de eletroduto rígido de 3 m','Abraçadeiras compatíveis','Curvas e luvas conforme o trajeto','Caixa de passagem ou condulete','Tampa cega ou conjunto com módulo de tomada'],variants:['Branco','Preto','Extensão por barra adicional'],active:true,source:'ROVAN'},
+  {id:'infra-eletroduto-1',name:'Kit eletroduto aparente 1 pol. — branco ou preto',price:249.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/eletroduto-aparente.svg',description:'Sistema aparente de maior capacidade para reunir mais cabos ou circuitos compatíveis. A ocupação do eletroduto e a separação dos cabos são calculadas antes da montagem.',included:['1 barra de eletroduto rígido de 3 m','Abraçadeiras compatíveis','Curvas e luvas conforme o trajeto','Caixa de passagem ou condulete','Tampa cega ou conjunto com módulo de tomada'],variants:['Branco','Preto','Extensão por barra adicional'],active:true,source:'ROVAN'},
+  {id:'infra-eletromangueira-34',name:'Eletromangueira corrugada preta 3/4 pol. com abraçadeiras',price:24.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/eletroduto-aparente.svg',description:'Infraestrutura flexível para organizar e proteger separadamente cabos de CFTV, alarme e controle de acesso em forros, empresas e trechos longos. A ROVAN escolhe material antichama adequado ao ambiente e mantém energia separada dos cabos de sinal.',included:['1 metro de eletromangueira 3/4 pol.','Abraçadeiras plásticas compatíveis','Conectores conforme as extremidades','Identificação do sistema atendido'],variants:['Preço-base por metro','Fixação contínua e curvas sem esmagamento','Dimensionamento conforme quantidade de cabos'],active:true,source:'ROVAN'},
+  {id:'infra-corrugado-enterrado',name:'Infraestrutura corrugada para trecho enterrado',price:29.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/eletroduto-aparente.svg',description:'Proteção subterrânea para travessias e trechos externos de CFTV, alarme ou controle de acesso. O produto deve ser próprio para enterramento e o caminho é planejado para reduzir entrada de água e facilitar manutenção.',included:['Eletroduto corrugado próprio para a aplicação','Conexões e vedação compatíveis','Cabo-guia quando previsto','Identificação das extremidades'],variants:['Preço-base por metro de infraestrutura','Caixas de passagem conforme distância e mudanças de direção','Escavação, recomposição de piso ou jardim orçadas separadamente'],active:true,source:'ROVAN'},
+  {id:'infra-canaleta-10x12',name:'Canaleta autoadesiva 10 × 12 mm — 2 m',price:19.9,category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Canaleta discreta para poucos cabos de baixa ocupação. A fita dupla face exige superfície lisa, limpa e firme; quando necessário, a ROVAN complementa a fixação mecanicamente.',variants:['Emendas e curvas compatíveis','Acabamentos da mesma linha','Não misturar cabos incompatíveis'],active:true,source:'ROVAN'},
+  {id:'infra-canaleta-20x12',name:'Canaleta autoadesiva 20 × 12 mm — 2 m',price:34.9,category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Canaleta para organizar cabos em instalações aparentes residenciais. A capacidade, a curvatura e os acessórios são escolhidos conforme o trajeto.',variants:['Emendas e curvas compatíveis','Caixa 4 × 2 de sobrepor','Tampa cega ou módulos de tomada'],active:true,source:'ROVAN'},
+  {id:'infra-canaleta-40x20',name:'Canaleta autoadesiva 40 × 20 mm — 2 m',price:64.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Canaleta de maior capacidade para circuitos, cabos de TV, dados ou segurança, respeitando a separação exigida. Medida final e acessórios são confirmados por projeto.',variants:['Com ou sem divisória conforme aplicação','Curvas internas e externas','Tês, emendas e terminais compatíveis'],active:true,source:'ROVAN'},
+  {id:'infra-canaleta-50x25',name:'Canaleta autoadesiva 50 × 25 mm — 2 m',price:89.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Canaleta ampla para trajetos com mais cabos e necessidade de acabamento profissional. A ROVAN calcula ocupação, divisórias, curvas e caixas antes do pedido.',variants:['Com divisória quando necessário','Curvas, tês, emendas e terminais','Caixas de sobrepor compatíveis'],active:true,source:'ROVAN'},
+  {id:'infra-acessorios-canaleta',name:'Kit de acabamento para canaleta',price:59.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Conjunto dimensionado para terminar o trajeto sem improvisos. As peças precisam ser da mesma marca, linha e medida da canaleta escolhida.',included:['Emendas retas','Curvas internas e externas','Curva plana quando necessária','Terminais e derivações conforme o desenho'],variants:['10 × 12 mm','20 × 12 mm','40 × 20 mm','50 × 25 mm'],active:true,source:'ROVAN'},
+  {id:'infra-caixa-4x2-cega',name:'Caixa 4 × 2 de sobrepor com tampa cega',price:29.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Caixa de passagem e acabamento para instalação aparente. Entradas, tampa e sistema de fixação são compatibilizados com a canaleta ou eletroduto escolhido.',variants:['Branca','Preta conforme disponibilidade','Entrada compatível com a infraestrutura'],active:true,source:'ROVAN'},
+  {id:'infra-caixa-4x2-tomada',name:'Caixa 4 × 2 de sobrepor com módulo de tomada',price:49.9,pricePrefix:'A partir de',category:'infraestrutura',image:'assets/canaleta-aparente.svg',description:'Ponto de tomada aparente montado em caixa 4 × 2. O circuito, a bitola, a corrente, o aterramento e a proteção no quadro precisam ser adequados.',variants:['1 módulo 2P+T 10 A','2 módulos conforme espaço e circuito','20 A somente quando o circuito for compatível'],active:true,source:'ROVAN'}
+];
+
+function catalogDescription(name,category){
+  const n=name.toLocaleUpperCase('pt-BR');
+  if(n.includes('FITA LED'))return 'Iluminação decorativa flexível para sancas, móveis e detalhes. O local, o comprimento, a fonte e a proteção contra umidade devem ser confirmados antes da aplicação.';
+  if(n.includes('LAMPADA LED')||n.includes('LÂMPADA LED'))return 'Lâmpada LED bivolt para uso no soquete indicado. Confira potência, temperatura de cor, dimensão da peça e ventilação da luminária.';
+  if(n.includes('PAINEL LED')||n.includes('PLAFON'))return 'Iluminação de teto para distribuir luz de maneira uniforme. Confirme se o modelo é de sobrepor ou embutir, a medida do recorte e a temperatura de cor.';
+  if(n.includes('SPOT LED'))return 'Ponto de luz direcionado para destacar bancadas, corredores ou objetos. A instalação exige recorte e espaço compatíveis no forro.';
+  if(n.includes('CHAVE TESTE'))return 'Ferramenta auxiliar para verificação básica de tensão. Não substitui multímetro, procedimento de desenergização nem serviço profissional.';
+  if(n.includes('CONECTOR'))return 'Conector para emenda e derivação organizadas, respeitando bitola, corrente e quantidade de condutores indicadas pelo fabricante.';
+  if(n.includes('FILTRO DE LINHA'))return 'Proteção e distribuição de energia para equipamentos compatíveis. Não deve ser usado para chuveiro, aquecedor ou outras cargas de alta potência.';
+  if(n.includes('FITA ISOLANTE'))return 'Material para isolamento elétrico e acabamento de conexões adequadas. Não corrige emendas mal dimensionadas ou instalação deteriorada.';
+  if(n.includes('INTERRUPTOR SMART'))return 'Interruptor inteligente para comando local e por aplicativo. Antes da compra, confira Wi-Fi 2,4 GHz, quantidade de teclas, potência e presença do condutor neutro.';
+  if(n.includes('TOMADA DUPLA')&&n.includes('SMART'))return 'Tomada inteligente dupla com controle por aplicativo. A caixa, a fiação, a corrente do circuito e a qualidade do Wi-Fi precisam ser compatíveis.';
+  if(n.includes('BRAÇO')&&n.includes('CHUVEIRO'))return 'Braço para posicionar o chuveiro no ponto hidráulico existente. Confirme rosca, comprimento, material e espaço disponível.';
+  if(n.includes('DUCHA HIGIENICA')||n.includes('DUCHA HIGIÊNICA'))return 'Ducha higiênica para instalação em ponto de água compatível. Registro, pressão, alcance da mangueira e vedação devem ser conferidos.';
+  if(n.includes('ENGATE')||n.includes('FLEXIVEL')||n.includes('FLEXÍVEL'))return 'Ligação flexível para alimentação de água. Confirme comprimento, roscas, pressão de trabalho e aplicação antes da compra.';
+  if(n.includes('VEDA ROSCA'))return 'Fita de PTFE para vedação de conexões roscadas compatíveis. A aplicação correta evita vazamentos sem forçar a peça.';
+  if(n.includes('AQUECEDOR')||n.includes('PRESSURIZADOR'))return 'Equipamento para melhorar aquecimento ou pressão no ponto indicado. Tensão, vazão, pressão disponível e instalação elétrica precisam ser avaliadas.';
+  if(n.includes('SIFÃO'))return 'Sifão para conduzir o escoamento e bloquear odores. Verifique diâmetros, distância, alinhamento e espaço sob a pia ou tanque.';
+  if(n.includes('VALVULA')||n.includes('VÁLVULA'))return 'Válvula de escoamento para pia, lavatório ou tanque conforme o modelo. Medida, acabamento e compatibilidade com a cuba devem ser confirmados.';
+  if(n.includes('ASSENTO'))return 'Assento sanitário para reposição ou primeira instalação. Confira formato, distância entre furos e medidas da louça.';
+  if(n.includes('BARRA APOIO'))return 'Barra de apoio para auxiliar a segurança e a mobilidade. A fixação deve alcançar estrutura resistente e respeitar posição e altura adequadas.';
+  if(n.includes('DUCHA')&&!n.includes('HIGIENICA')&&!n.includes('HIGIÊNICA'))return 'Ducha para banho no ponto existente. Em modelos elétricos, confirme tensão, potência, disjuntor, bitola, aterramento e pressão da água.';
+  if(n.includes('KIT')&&n.includes('BANHEIRO'))return 'Conjunto de acessórios para organizar o banheiro. Antes de furar, confirme posição, nível, tipo de parede e passagem de tubulações.';
+  if(n.includes('PORTA SHAMPOO')||n.includes('PORTA TOALHA'))return 'Acessório de banheiro para fixação na parede. A posição deve considerar ergonomia, tipo de revestimento e tubulações embutidas.';
+  if(n.includes('RESISTENCIA')||n.includes('RESISTÊNCIA'))return 'Resistência de reposição para modelo e tensão específicos. A troca exige desenergização, montagem correta e teste sem vazamento.';
+  if(n.includes('PURIFICADOR'))return 'Purificador para ponto de água compatível. Confirme pressão, rosca, espaço de uso e periodicidade de troca do refil.';
+  if(n.includes('TORNEIRA'))return 'Torneira para a aplicação indicada. Confira instalação de mesa ou parede, rosca, altura da bica, alcance, pressão e tensão quando elétrica.';
+  if(category==='iluminacao')return 'Item de iluminação para completar a primeira casa. Potência, cor da luz, encaixe e local de instalação são confirmados antes da compra.';
+  if(category==='banheiro')return 'Item hidráulico para banheiro, cozinha ou lavanderia. Medidas, roscas, pressão e espaço de instalação precisam ser compatíveis.';
+  return 'Item para completar a instalação da primeira casa, com aplicação e compatibilidade confirmadas pela ROVAN antes do pedido.';
+}
+const DEFAULT_PRODUCTS=[...SECURITY_PRODUCTS,...INFRASTRUCTURE_PRODUCTS,...KYTE_CATALOG.map(([name,price,category,image],index)=>({
   id:`kyte-${String(index+1).padStart(3,'0')}`,name,price,category,
-  image:`${KYTE_IMAGE_BASE}${image}.jpg?alt=media`,description:'',active:true,source:'Kyte'
+  image:`${KYTE_IMAGE_BASE}${image}.jpg?alt=media`,description:catalogDescription(name,category),active:true,source:'Kyte'
 }))];
