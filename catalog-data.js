@@ -217,7 +217,8 @@ const SECURITY_PRODUCTS=[
   },
   {
     id:'cftv-projeto',name:'Solução CFTV personalizada',price:null,category:'cftv',image:'assets/kit-cftv.jpg',
-    description:'Para mais de 8 câmeras, lojas, comércio e indústria. Fazemos levantamento do local, definimos a infraestrutura e apresentamos uma proposta sob medida.',
+    description:'Para mais de 8 câmeras, lojas, comércio e indústria. A referência inicial para 16 câmeras mantém HD de 500 GB; fazemos o levantamento do local, definimos a infraestrutura e apresentamos uma proposta sob medida.',
+    included:['Referência inicial de até 16 câmeras','DVR ou NVR compatível','HD de 500 GB','Fonte, conexões e cabeamento-base','Configuração e orientação'],
     projectOnly:true,active:true,source:'ROVAN'
   },
   {
@@ -257,15 +258,17 @@ function catalogDescription(name,category){
   if(n.includes('FITA ISOLANTE'))return 'Material para isolamento elétrico e acabamento de conexões adequadas. Não corrige emendas mal dimensionadas ou instalação deteriorada.';
   if(n.includes('INTERRUPTOR SMART'))return 'Interruptor inteligente para comando local e por aplicativo. Antes da compra, confira Wi-Fi 2,4 GHz, quantidade de teclas, potência e presença do condutor neutro.';
   if(n.includes('TOMADA DUPLA')&&n.includes('SMART'))return 'Tomada inteligente dupla com controle por aplicativo. A caixa, a fiação, a corrente do circuito e a qualidade do Wi-Fi precisam ser compatíveis.';
-  if(n.includes('BRAÇO')&&n.includes('CHUVEIRO'))return 'Braço para posicionar o chuveiro no ponto hidráulico existente. Confirme rosca, comprimento, material e espaço disponível.';
+  if((n.includes('BRAÇO')||n.includes('BRACO'))&&n.includes('CHUVEIRO'))return 'Braço para posicionar o chuveiro no ponto hidráulico existente. Confirme rosca, comprimento, material e espaço disponível.';
+  if(n.includes('HASTE')&&n.includes('DUCHA'))return 'Haste para posicionar a ducha no ponto hidráulico existente. Confirme rosca, comprimento, acabamento e espaço disponível.';
   if(n.includes('DUCHA HIGIENICA')||n.includes('DUCHA HIGIÊNICA'))return 'Ducha higiênica para instalação em ponto de água compatível. Registro, pressão, alcance da mangueira e vedação devem ser conferidos.';
   if(n.includes('ENGATE')||n.includes('FLEXIVEL')||n.includes('FLEXÍVEL'))return 'Ligação flexível para alimentação de água. Confirme comprimento, roscas, pressão de trabalho e aplicação antes da compra.';
   if(n.includes('VEDA ROSCA'))return 'Fita de PTFE para vedação de conexões roscadas compatíveis. A aplicação correta evita vazamentos sem forçar a peça.';
   if(n.includes('AQUECEDOR')||n.includes('PRESSURIZADOR'))return 'Equipamento para melhorar aquecimento ou pressão no ponto indicado. Tensão, vazão, pressão disponível e instalação elétrica precisam ser avaliadas.';
-  if(n.includes('SIFÃO'))return 'Sifão para conduzir o escoamento e bloquear odores. Verifique diâmetros, distância, alinhamento e espaço sob a pia ou tanque.';
+  if(n.includes('SIFÃO')||n.includes('SIFAO'))return 'Sifão para conduzir o escoamento e bloquear odores. Verifique diâmetros, distância, alinhamento e espaço sob a pia ou tanque.';
   if(n.includes('VALVULA')||n.includes('VÁLVULA'))return 'Válvula de escoamento para pia, lavatório ou tanque conforme o modelo. Medida, acabamento e compatibilidade com a cuba devem ser confirmados.';
   if(n.includes('ASSENTO'))return 'Assento sanitário para reposição ou primeira instalação. Confira formato, distância entre furos e medidas da louça.';
   if(n.includes('BARRA APOIO'))return 'Barra de apoio para auxiliar a segurança e a mobilidade. A fixação deve alcançar estrutura resistente e respeitar posição e altura adequadas.';
+  if(n.includes('DUCHA FRIA'))return 'Ducha sem aquecimento elétrico para o ponto hidráulico existente. Confirme rosca, pressão, alcance e posição antes da instalação.';
   if(n.includes('DUCHA')&&!n.includes('HIGIENICA')&&!n.includes('HIGIÊNICA'))return 'Ducha para banho no ponto existente. Em modelos elétricos, confirme tensão, potência, disjuntor, bitola, aterramento e pressão da água.';
   if(n.includes('KIT')&&n.includes('BANHEIRO'))return 'Conjunto de acessórios para organizar o banheiro. Antes de furar, confirme posição, nível, tipo de parede e passagem de tubulações.';
   if(n.includes('PORTA SHAMPOO')||n.includes('PORTA TOALHA'))return 'Acessório de banheiro para fixação na parede. A posição deve considerar ergonomia, tipo de revestimento e tubulações embutidas.';
