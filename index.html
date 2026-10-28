@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <header class="topbar">
@@ -118,9 +118,15 @@
         <button type="button" data-filter="alarmes"><span>◉</span><strong>Alarmes</strong><small>Kits, centrais e sensores</small></button>
         <button type="button" data-filter="cftv"><span>●</span><strong>CFTV e câmeras Wi-Fi</strong><small>Kits e câmeras para cada ambiente</small></button>
         <button type="button" data-filter="portoes"><span>↔</span><strong>Portões automáticos</strong><small>Motores e soluções de acesso</small></button>
+        <button type="button" data-filter="fechaduras"><span>▣</span><strong>Controle de acesso e fechaduras</strong><small>Escolha a marca e depois o modelo compatível</small></button>
+        <button type="button" data-filter="automacao"><span>⌂</span><strong>Casa inteligente</strong><small>Interruptores, tomadas e automações úteis</small></button>
       </div>
       <div class="catalog-results" id="catalogResults" hidden>
         <div class="catalog-selection"><div><span>Linha selecionada</span><strong id="selectedCategoryName"></strong></div><button type="button" id="closeCatalogLine">← Trocar de linha</button></div>
+        <div class="brand-filter" id="brandFilter" hidden aria-label="Filtrar produtos por marca">
+          <div><strong>Escolha a marca</strong><small>Se ainda não sabe, mantenha “Todas”.</small></div>
+          <div class="brand-options" id="brandOptions"></div>
+        </div>
         <aside class="category-tip" id="categoryTip" aria-live="polite">
         <img src="assets/apresentador-rovan-loja.png" alt="">
           <div><span>DICA DA ROVAN</span><strong id="categoryTipTitle"></strong><p id="categoryTipText"></p></div>
@@ -250,7 +256,7 @@
         <input type="hidden" id="editingId">
         <input name="name" required placeholder="Nome do produto">
         <input name="price" inputmode="decimal" placeholder="Preço: 59,90 (vazio = sob consulta)">
-        <select name="category" required><option value="essenciais">Primeiros essenciais</option><option value="iluminacao">Iluminação e elétrica</option><option value="banheiro">Banheiro e hidráulica</option><option value="alarmes">Alarmes</option><option value="cftv">CFTV</option><option value="portoes">Portões automáticos</option><option value="seguranca">Casa segura</option><option value="kits">Kits</option></select>
+        <select name="category" required><option value="essenciais">Primeiros essenciais</option><option value="iluminacao">Iluminação e elétrica</option><option value="banheiro">Banheiro e hidráulica</option><option value="alarmes">Alarmes</option><option value="cftv">CFTV</option><option value="portoes">Portões automáticos</option><option value="fechaduras">Controle de acesso e fechaduras</option><option value="automacao">Casa inteligente</option><option value="seguranca">Casa segura</option><option value="kits">Kits</option></select>
         <input name="image" inputmode="url" placeholder="Link da imagem">
         <label class="file-field">Ou escolher imagem<input name="imageFile" type="file" accept="image/*"></label>
         <textarea name="description" placeholder="Descrição curta (pode preencher depois)"></textarea>
@@ -356,7 +362,7 @@
 
   <div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="catalog-data.js?v=11"></script>
-  <script src="app-v3.js?v=11"></script>
+  <script src="catalog-data.js?v=12"></script>
+  <script src="app-v3.js?v=12"></script>
 </body>
 </html>

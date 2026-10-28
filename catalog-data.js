@@ -32,10 +32,10 @@ const KYTE_CATALOG=[
 ['FILTRO DE LINHA 5 TOMADAS C/INT E FUSIVEL - MEGATRON',37.9,'essenciais','wvPqB4%2BeZ40qxvcR5PRQ%3D%3D'],
 ['FILTRO DE LINHA INTELBRAS EPE 1004 FILTRO DE LINHA 4 TOMADAS',58.9,'essenciais','8c72kRtmS%2Bp1jNf2r1qUvw%3D%3D'],
 ['FITA ISOLANTE',5.9,'essenciais','H7NZcHeYdBNvmeDFx738cw%3D%3D'],
-['INTERRUPTOR SMART 1 TECLA 10A BR',189.9,'essenciais','77k7qxZ3gEFw%2B1ldnQCHvw%3D%3D'],
-['INTERRUPTOR SMART 2 TECLAS 10A BR',199.9,'essenciais','tIKFey%2BsqwdJmUyFCmIGw%3D%3D'],
-['INTERRUPTOR SMART 3 TECLAS 10A BR',209.9,'essenciais','rl%2BQEwcx7PA36PKcMGQidQ%3D%3D'],
-['TOMADA DUPLA 10A SMART WI-FI ETS 1002 PRETO - INTELBRAS - (SC)',193.9,'essenciais','vb57VMgOGaUEljDHXET2pA%3D%3D'],
+['INTERRUPTOR SMART 1 TECLA 10A BR',189.9,'automacao','77k7qxZ3gEFw%2B1ldnQCHvw%3D%3D'],
+['INTERRUPTOR SMART 2 TECLAS 10A BR',199.9,'automacao','tIKFey%2BsqwdJmUyFCmIGw%3D%3D'],
+['INTERRUPTOR SMART 3 TECLAS 10A BR',209.9,'automacao','rl%2BQEwcx7PA36PKcMGQidQ%3D%3D'],
+['TOMADA DUPLA 10A SMART WI-FI ETS 1002 PRETO - INTELBRAS - (SC)',193.9,'automacao','vb57VMgOGaUEljDHXET2pA%3D%3D'],
 ['BRAÇO CHUVEIRO PVC 39,5CM BR 1/2',10.9,'banheiro','e1ATiTsgtPKH9%2BTaPD%2B9Kg%3D%3D'],
 ['BRACO DE CHUVEIRO DE 40 CM (ALUMÍNIO)',19.9,'banheiro','uBnOBa5hrIQRx1FeuwpmBw%3D%3D'],
 ['BRAÇO PARA CHUVEIRO 1/2 31CM',9.9,'banheiro','V43VJBYjvrHbNWT7ANqjMA%3D%3D'],
@@ -99,31 +99,31 @@ const KYTE_CATALOG=[
 ];
 const SECURITY_PRODUCTS=[
   {
-    id:'alarme-kit-anm24',name:'Kit Alarme Intelbras ANM 24 NET',price:899.9,pricePrefix:'A partir de',category:'alarmes',
+    id:'alarme-kit-anm24',name:'Kit Alarme Intelbras ANM 24 NET',price:899.9,pricePrefix:'A partir de',category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2021-12/central-de-alarme-nao-monitorada-anm-24-net.jpg',
     description:'Kit residencial econômico com sensores com fio, sem fio ou configuração mista. Inclui central, sensor interno PET, sensores magnéticos, sirene, bateria e controle adicional.',
     included:['Central ANM 24 NET','Sensores com fio e/ou sem fio','Sensor interno PET','Sensores magnéticos','Sirene','Bateria','Controle adicional'],variants:['Com fio','Sem fio','Configuração mista'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'alarme-kit-amt1000',name:'Kit Alarme Intelbras AMT 1000 SMART',price:999.9,pricePrefix:'A partir de',category:'alarmes',
+    id:'alarme-kit-amt1000',name:'Kit Alarme Intelbras AMT 1000 SMART',price:999.9,pricePrefix:'A partir de',category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2023-04/central-de-alarme-smart-amt-1000-smart.jpg',
     description:'Solução smart residencial com sensores com fio, sem fio ou configuração mista. Inclui central monitorada, sensores, sirene, bateria e controle adicional.',
     included:['Central AMT 1000 SMART','Sensores com fio e/ou sem fio','Sensor interno PET','Sensores magnéticos','Sirene','Bateria','Controle adicional'],variants:['Com fio','Sem fio','Configuração mista'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'alarme-kit-amt8000',name:'Kit Alarme Intelbras AMT 8000 sem fio',price:2299.9,pricePrefix:'A partir de',category:'alarmes',
+    id:'alarme-kit-amt8000',name:'Kit Alarme Intelbras AMT 8000 sem fio',price:2299.9,pricePrefix:'A partir de',category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2021-04/sistema-8000-sistema-de-alarme-sem-fio.jpg',
     description:'Linha premium totalmente sem fio: central AMT 8000, sensor PET, sensor magnético, sirene, bateria e controle adicional da família 8000.',
     included:['Central AMT 8000','Sensor PET linha 8000','Sensores magnéticos XAS 8000','Sirene XSS 8000','Bateria','Controle adicional XAC 8000'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'alarme-kit-hikvision-ax-home',name:'Kit Alarme Hikvision AX HOME DS-PA201P-KIT-16WB',price:699.9,pricePrefix:'A partir de',category:'alarmes',
+    id:'alarme-kit-hikvision-ax-home',name:'Kit Alarme Hikvision AX HOME DS-PA201P-KIT-16WB',price:699.9,pricePrefix:'A partir de',category:'alarmes',brand:'Hikvision',
     image:'assets/kit-alarme-hikvision.webp',
     description:'Kit de entrada sem fio com controle pelo aplicativo Hik-Connect. O conjunto inicial considera central, sensor de movimento, sensor magnético e controle; sirene e sensores adicionais podem ser incluídos.',
     included:['Central AX HOME','Sensor de movimento sem fio','Sensor magnético sem fio','Controle remoto','Bateria de emergência da central'],variants:['Até 16 zonas, conforme o modelo','Wi-Fi','Expansão sem fio'],customizable:true,active:true,source:'ROVAN'
   },
   {
-    id:'alarme-kit-agl-izzy',name:'Kit Alarme AGL Izzy Touch Wi-Fi',price:699.9,pricePrefix:'A partir de',category:'alarmes',
+    id:'alarme-kit-agl-izzy',name:'Kit Alarme AGL Izzy Touch Wi-Fi',price:699.9,pricePrefix:'A partir de',category:'alarmes',brand:'AGL',
     image:'assets/kit-alarme-agl.jpg',
     description:'Solução residencial AGL com central Wi-Fi, sensores sem fio e controle pelo aplicativo AGL Home. A compatibilidade dos acessórios é confirmada antes da compra.',
     included:['Central Izzy Touch Wi-Fi','Sensor de movimento','2 sensores de porta/janela','Controle remoto','Bateria interna da central'],variants:['Sensores AGL 433 MHz','Aplicativo AGL Home','Expansão sem fio'],customizable:true,active:true,source:'ROVAN'
@@ -132,86 +132,146 @@ const SECURITY_PRODUCTS=[
     id:'motor-deslizante-14',name:'Motor para portão deslizante 1/4 HP — residencial',price:699.9,pricePrefix:'A partir de',category:'portoes',
     image:'assets/motor-deslizante.png',
     description:'Solução para portão de correr residencial e baixo fluxo. Peso, comprimento, estado dos trilhos e quantidade de ciclos são confirmados antes da escolha.',
-    included:['Motor e central compatível','2 controles remotos','Fim de curso','Cremalheira conforme o vão'],variants:['Garen','PPA','AGL','Contel','Wi-Fi opcional'],active:true,source:'ROVAN'
+    included:['Motor e central compatível','2 controles remotos','Fim de curso','Mínimo de 3 m de cremalheira'],brands:['Deltamovi','AGL','Garen','PPA','Contel','Intelbras'],variants:['Escolha a marca no filtro','Wi-Fi opcional'],active:true,source:'ROVAN'
   },
   {
     id:'motor-deslizante-13',name:'Motor para portão deslizante 1/3 HP — semirrápido',price:899.9,pricePrefix:'A partir de',category:'portoes',
     image:'assets/motor-deslizante.png',
     description:'Para portão deslizante mais pesado ou com maior frequência de uso. A velocidade real depende do modelo, peso e curso do portão.',
-    included:['Motor e central compatível','2 controles remotos','Fim de curso','Cremalheira conforme o vão'],variants:['Garen','PPA','AGL','Contel','Semirrápido','Wi-Fi opcional'],active:true,source:'ROVAN'
+    included:['Motor e central compatível','2 controles remotos','Fim de curso','Mínimo de 3 m de cremalheira'],brands:['Deltamovi','AGL','Garen','PPA','Contel','Intelbras'],variants:['Escolha a marca no filtro','Semirrápido e Wi-Fi opcionais'],active:true,source:'ROVAN'
   },
   {
     id:'motor-basculante-14',name:'Motor para portão basculante 1/4 HP — residencial',price:899.9,pricePrefix:'A partir de',category:'portoes',
-    image:'assets/motor-basculante.png',
+    image:'assets/motor-basculante-ppa.webp',
     description:'Automatizador para portão basculante residencial leve e balanceado. Curso do acionador, lado de instalação e estrutura são definidos no local.',
-    included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],variants:['Garen','PPA','AGL','Contel','Wi-Fi opcional'],active:true,source:'ROVAN'
+    included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],brands:['Deltamovi','AGL','Garen','PPA','Contel','Intelbras'],variants:['Escolha a marca no filtro','Wi-Fi opcional'],active:true,source:'ROVAN'
   },
   {
     id:'motor-basculante-13',name:'Motor para portão basculante 1/3 HP — semirrápido',price:1199.9,pricePrefix:'A partir de',category:'portoes',
-    image:'assets/motor-basculante.png',
+    image:'assets/motor-basculante-ppa.webp',
     description:'Para basculante mais pesado ou de uso mais frequente. O portão precisa estar estruturalmente íntegro, alinhado e corretamente balanceado.',
-    included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],variants:['Garen','PPA','AGL','Contel','Semirrápido','Wi-Fi opcional'],active:true,source:'ROVAN'
+    included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],brands:['Deltamovi','AGL','Garen','PPA','Contel','Intelbras'],variants:['Escolha a marca no filtro','Semirrápido e Wi-Fi opcionais'],active:true,source:'ROVAN'
   },
   {
-    id:'sensor-pet-interno',name:'Sensor interno PET',price:149.9,category:'alarmes',
+    id:'fechadura-intelbras-fr101',name:'Fechadura digital Intelbras FR 101 V',price:399.9,pricePrefix:'A partir de',category:'fechaduras',brand:'Intelbras',
+    image:'assets/fechadura-intelbras-fr101.png',
+    description:'Modelo de sobrepor para ambiente interno, com abertura por senha, travamento automático e alimentação por pilhas. A espessura, o sentido de abertura e o espaço da porta são conferidos antes da compra.',
+    variants:['Senha numérica','Porta de 25 a 70 mm','Uso interno protegido'],active:true,source:'ROVAN'
+  },
+  {
+    id:'fechadura-intelbras-mfr7000',name:'Fechadura inteligente Intelbras MFR 7000',price:1299.9,pricePrefix:'A partir de',category:'fechaduras',brand:'Intelbras',
+    image:'assets/fechadura-intelbras-mfr7000.jpg',
+    description:'Modelo de embutir com maçaneta, biometria, senha, tag e integração pelo aplicativo Mibo Smart. Indicada para portas compatíveis e ambientes protegidos de sol e chuva.',
+    variants:['Biometria','Senha e tag','Aplicativo Mibo Smart'],active:true,source:'ROVAN'
+  },
+  {
+    id:'fechadura-agl-t12s',name:'Fechadura digital AGL T12-S',price:749.9,pricePrefix:'A partir de',category:'fechaduras',brand:'AGL',
+    image:'assets/fechadura-agl-t12s.png',
+    description:'Opção com biometria, senha, tag e aplicativo AGL Home. Compatível com portas de madeira ou metal de 30 a 60 mm, após conferência das medidas e do sentido de abertura.',
+    variants:['Biometria','Senha e tag','Aplicativo AGL Home','Até 50 usuários'],active:true,source:'ROVAN'
+  },
+  {
+    id:'controle-agl-ca2000s',name:'Controle de acesso AGL CA2000S Wi-Fi',price:569.9,pricePrefix:'A partir de',category:'fechaduras',brand:'AGL',
+    image:'assets/agl-controle-ca2000.png',
+    description:'Controlador com leitura de cartão ou tag RFID e opção Wi-Fi. Trabalha com fechadura elétrica, eletroímã ou outro acionamento compatível; fonte, botoeira, fechadura e quantidade de usuários são definidos no projeto.',
+    included:['Controlador CA2000S Wi-Fi','Cadastro e gerenciamento de usuários','Integração com dispositivo de trava compatível'],variants:['Tags ou cartões RFID','Cor branca ou preta conforme disponibilidade','Fechadura, fonte e botoeira orçadas conforme a porta'],active:true,source:'ROVAN'
+  },
+  {
+    id:'fechadura-agl-al200r',name:'Fechadura elétrica AGL AL200R',price:299.9,pricePrefix:'A partir de',category:'fechaduras',brand:'AGL',
+    image:'assets/agl-fechadura-al200r.png',
+    description:'Fechadura elétrica de sobrepor, reversível, para portas ou portões de metal ou madeira. Pode integrar porteiro eletrônico e controle de acesso após conferência do sentido de abertura, batente e alimentação.',
+    variants:['Abertura para dentro ou para fora','Direita ou esquerda','Fonte e acionador definidos conforme o sistema'],active:true,source:'ROVAN'
+  },
+  {
+    id:'videoporteiro-agl-s500',name:'Vídeo porteiro AGL S500 APP',price:1799.9,pricePrefix:'A partir de',category:'fechaduras',brand:'AGL',
+    image:'assets/agl-videoporteiro-s500.png',
+    description:'Vídeo porteiro com imagem Full HD, áudio, tags RFID e acesso remoto pelos aplicativos compatíveis. A configuração final depende do número de pontos e do monitor, que pode ser vendido separadamente.',
+    included:['Módulo externo S500 APP','Acesso pelo aplicativo','Leitor de tags RFID','Integração com fechadura elétrica 12 V'],variants:['8 pontos','16 pontos','Monitor interno opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'interfone-jfl-pec1310c',name:'Porteiro GSM/4G JFL PEC 1310 C',price:899.9,pricePrefix:'A partir de',category:'fechaduras',brand:'JFL',
+    image:'assets/jfl-pec1310c.png',
+    description:'Porteiro eletrônico que chama telefones cadastrados pela rede celular 4G, com teclado e leitor RFID. O kit-base considera fonte e tags; chip, plano de dados, fechadura, botoeira e bateria são definidos conforme o local.',
+    included:['Porteiro JFL PEC 1310 C','Fonte compatível','Kit inicial de tags RFID','Programação e teste de chamada'],variants:['Chip e plano de dados não inclusos','Fechadura elétrica ou eletroímã opcional','Bateria ou fonte nobreak opcional'],active:true,source:'ROVAN'
+  },
+  {
+    id:'automacao-agl-interruptor-tomada',name:'Interruptor com tomada inteligente Wi-Fi AGL',price:179.9,pricePrefix:'A partir de',category:'automacao',brand:'AGL',
+    image:'assets/agl-interruptor-tomada-smart.png',
+    description:'Controle de iluminação e tomada pelo aplicativo AGL Home ou assistente de voz, com agendamento e proteção contra sobrecarga. Caixa, fiação, neutro e Wi-Fi são conferidos antes.',
+    variants:['Branco ou preto','Wi-Fi 2,4 GHz','Aplicativo AGL Home','Assistentes de voz'],active:true,source:'ROVAN'
+  },
+  {
+    id:'automacao-agl-linha-completa',name:'Casa inteligente AGL — escolha por função',price:89.9,pricePrefix:'A partir de',category:'automacao',brand:'AGL',
+    image:'assets/agl-interruptor-tomada-smart.png',
+    description:'Linha de referência para começar a automação por uma necessidade real. A ROVAN confirma cor, formato, caixa, neutro, carga, Wi-Fi e compatibilidade antes de montar o conjunto.',
+    included:['Interruptores e tomadas inteligentes','Módulo Wi-Fi de 2 canais','Sensor de presença inteligente','Spot, painel ou fita LED inteligente','Comandos por aplicativo e voz'],variants:['Módulos brancos ou pretos','Valores variam conforme a função','Projeto expansível por ambiente'],projectOnly:true,active:true,source:'ROVAN'
+  },
+  {
+    id:'automacao-intelbras-linha-completa',name:'Casa inteligente Intelbras — escolha por função',price:59.9,pricePrefix:'A partir de',category:'automacao',brand:'Intelbras',
+    image:`${KYTE_IMAGE_BASE}vb57VMgOGaUEljDHXET2pA%3D%3D.jpg?alt=media`,
+    description:'Seleção por função para iluminação, tomadas e pequenos comandos. A referência começa por lâmpada inteligente; o valor final depende do dispositivo e da infraestrutura existente.',
+    included:['Lâmpadas e luminárias inteligentes','Tomadas e interruptores Wi-Fi','Controladores e módulos de automação','Rotinas, temporização e comando por voz'],variants:['Acabamento branco ou preto quando disponível','Wi-Fi 2,4 GHz','Compatibilidade confirmada antes da compra'],projectOnly:true,active:true,source:'ROVAN'
+  },
+  {
+    id:'sensor-pet-interno',name:'Sensor interno PET',price:149.9,category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2022-03/sensor-de-movimento-infravermelho-passivo-sem-fio-ivp-1000-pet-smart.jpg',
     description:'Para ambientes internos, instalado alto no canto e direcionado para a área protegida. Modelo definido conforme a central.',
     placement:'internal',placementLabel:'No canto interno, cerca de 2,1 m',active:true,source:'ROVAN'
   },
   {
-    id:'sensor-magnetico-branco',name:'Sensor magnético sem fio — branco',price:79.9,category:'alarmes',
+    id:'sensor-magnetico-branco',name:'Sensor magnético sem fio — branco',price:79.9,category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2020-09/XAS%204000%20Smart.jpg',
     description:'Opção econômica para detectar abertura de portas e janelas. As duas peças ficam alinhadas entre a folha e o marco.',
     placement:'opening',placementLabel:'Na porta ou janela, com as peças alinhadas',active:true,source:'ROVAN'
   },
   {
-    id:'sensor-magnetico-preto',name:'Sensor magnético sem fio — preto',price:89.9,category:'alarmes',
+    id:'sensor-magnetico-preto',name:'Sensor magnético sem fio — preto',price:89.9,category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2020-09/XAS%204000%20Smart.jpg',
     description:'Versão preta para esquadrias e portas escuras. O modelo econômico ou supervisionado é escolhido conforme a central.',
     placement:'opening',placementLabel:'Na porta ou janela, com as peças alinhadas',active:true,source:'ROVAN'
   },
   {
-    id:'sensor-externo',name:'Sensor de movimento externo',price:699.9,category:'alarmes',
+    id:'sensor-externo',name:'Sensor de movimento externo',price:699.9,category:'alarmes',brand:'Intelbras',
     image:'https://backend.intelbras.com/sites/default/files/2026-01/443276_AF_Flyer-Digital_IVP-3000-MW-EX_02.jpg',
     description:'Proteção para pátio, corredor lateral ou acesso coberto. O modelo é definido conforme a central e as condições do local.',
     placement:'external',placementLabel:'Na área externa, cerca de 2 m e fora do sol direto',active:true,source:'ROVAN'
   },
   {
-    id:'cftv-kit-4',name:'Kit CFTV com 4 câmeras',price:1899.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
+    id:'cftv-kit-4',name:'Kit CFTV com 4 câmeras',price:1899.9,pricePrefix:'A partir de',category:'cftv',brands:['Intelbras','HiLook','MDX'],image:'assets/kit-cftv.jpg',
     description:'Kit dimensionado, montado e configurado pela ROVAN. O preço muda conforme a tecnologia escolhida; instalação no local é apresentada separadamente.',
     included:['4 câmeras dome e/ou bullet','DVR ou NVR compatível','HD de 500 GB','Fonte, conectores e cabeamento-base','Configuração e orientação'],
     variants:['Analógico 1 MP — R$ 1.899,90','Analógico 2 MP Full Color — R$ 2.199,90','IP 2 MP — R$ 3.299,90'],
     variantPrices:{'Analógico 1 MP':1899.9,'Analógico 2 MP Full Color':2199.9,'IP':3299.9},customizable:true,customType:'cftv',active:true,source:'ROVAN'
   },
   {
-    id:'cftv-kit-8',name:'Kit CFTV com 8 câmeras',price:2999.9,pricePrefix:'A partir de',category:'cftv',image:'assets/kit-cftv.jpg',
+    id:'cftv-kit-8',name:'Kit CFTV com 8 câmeras',price:2999.9,pricePrefix:'A partir de',category:'cftv',brands:['Intelbras','HiLook','MDX'],image:'assets/kit-cftv.jpg',
     description:'Cobertura ampliada para residência ou pequeno negócio. O preço muda conforme a tecnologia escolhida; projetos maiores são avaliados separadamente.',
     included:['8 câmeras dome e/ou bullet','DVR ou NVR compatível','HD de 500 GB','Fonte, conectores e cabeamento-base','Configuração e orientação'],
     variants:['Analógico 1 MP — R$ 2.999,90','Analógico 2 MP Full Color — R$ 3.599,90','IP 2 MP — R$ 5.499,90'],
     variantPrices:{'Analógico 1 MP':2999.9,'Analógico 2 MP Full Color':3599.9,'IP':5499.9},customizable:true,customType:'cftv',active:true,source:'ROVAN'
   },
   {
-    id:'icsee-wifi-interna',name:'Câmera Wi-Fi interna iCSee',price:149.9,category:'cftv',image:'assets/icsee-wifi.png',
+    id:'icsee-wifi-interna',name:'Câmera Wi-Fi interna iCSee',price:149.9,category:'cftv',brand:'iCSee',image:'assets/icsee-wifi.png',
     description:'Câmera interna com giro, áudio bidirecional, detecção de movimento e acesso pelo aplicativo iCSee. Opção de bom custo-benefício utilizada pela ROVAN.',
     variants:['Wi-Fi 2,4 GHz','Uso interno','Cartão microSD opcional'],active:true,source:'ROVAN'
   },
   {
-    id:'icsee-giroflex',name:'Câmera Wi-Fi externa iCSee com giroflex e sirene',price:249.9,category:'cftv',image:'assets/icsee-giroflex.png',
+    id:'icsee-giroflex',name:'Câmera Wi-Fi externa iCSee com giroflex e sirene',price:249.9,category:'cftv',brand:'iCSee',image:'assets/icsee-giroflex.png',
     description:'Modelo externo com movimento PTZ, luz de alerta, sirene e áudio bidirecional. Indicado para entrada, pátio e corredor com bom alcance de Wi-Fi.',
     variants:['Wi-Fi 2,4 GHz','Uso externo','Alerta luminoso e sonoro'],active:true,source:'ROVAN'
   },
   {
-    id:'icsee-dupla',name:'Câmera Wi-Fi iCSee com duas lentes',price:299.9,category:'cftv',image:'assets/icsee-dupla.png',
+    id:'icsee-dupla',name:'Câmera Wi-Fi iCSee com duas lentes',price:299.9,category:'cftv',brand:'iCSee',image:'assets/icsee-dupla.png',
     description:'Duas lentes para acompanhar uma área ampla e manter um segundo enquadramento. A combinação de lentes e resolução varia conforme o modelo.',
     variants:['Wi-Fi 2,4 GHz','Duas lentes','Visão noturna'],active:true,source:'ROVAN'
   },
   {
-    id:'icsee-solar-wifi',name:'Câmera solar Wi-Fi iCSee',price:499.9,pricePrefix:'A partir de',category:'cftv',image:'assets/icsee-solar-wifi.png',
+    id:'icsee-solar-wifi',name:'Câmera solar Wi-Fi iCSee',price:499.9,pricePrefix:'A partir de',category:'cftv',brand:'iCSee',image:'assets/icsee-solar-wifi.png',
     description:'Solução com painel solar para locais sem tomada próxima, desde que haja sinal Wi-Fi estável no ponto de instalação.',
     variants:['Painel solar','Wi-Fi 2,4 GHz','Bateria interna'],active:true,source:'ROVAN'
   },
   {
-    id:'icsee-solar-4g',name:'Câmera solar 4G/GPRS iCSee',price:749.9,pricePrefix:'A partir de',category:'cftv',image:'assets/icsee-solar-4g.png',
+    id:'icsee-solar-4g',name:'Câmera solar 4G/GPRS iCSee',price:749.9,pricePrefix:'A partir de',category:'cftv',brand:'iCSee',image:'assets/icsee-solar-4g.png',
     description:'Para locais sem internet fixa e sem tomada. Usa chip compatível e plano de dados; a cobertura da operadora precisa ser confirmada no local.',
     variants:['Painel solar','Chip 4G/GPRS','Plano de dados não incluso'],active:true,source:'ROVAN'
   },
@@ -224,7 +284,7 @@ const SECURITY_PRODUCTS=[
   {
     id:'kit-primeira-mudanca',name:'Kit Primeira Mudança - apartamento completo',price:799.9,pricePrefix:'A partir de',category:'essenciais',image:'assets/kit-primeira-mudanca.png',
     description:'Base para apartamento com cozinha, corredor, dois quartos, banheiro, lavanderia, sacada e sala. A ROVAN confirma tensão, pontos existentes e quantidades antes da compra.',
-    included:['8 pontos de iluminação com plafon/soquete e LED','Luz quente nos quartos e sala; neutra nas áreas de tarefa','Extensão ou filtro de linha','Kit básico de ferramentas','Chuveiro e conexões compatíveis','Itens iniciais de banheiro e lavanderia'],
+    included:['8 pontos de iluminação com plafon/soquete e LED','Luz quente nos quartos e sala; neutra nas áreas de tarefa','Conferência de tomadas, interruptores e tampas por ambiente','Extensão ou filtro de linha','Chuveiro e conexões compatíveis','Torneiras, sifões e engates da cozinha, banheiro e lavanderia','Suporte de TV, varal e acessórios conforme a necessidade'],
     variants:['Ajustável por ambiente','Produtos confirmados antes da compra','Instalação orçada separadamente'],active:true,source:'ROVAN'
   }
 ];
@@ -277,9 +337,14 @@ function catalogDescription(name,category){
   if(n.includes('TORNEIRA'))return 'Torneira para a aplicação indicada. Confira instalação de mesa ou parede, rosca, altura da bica, alcance, pressão e tensão quando elétrica.';
   if(category==='iluminacao')return 'Item de iluminação para completar a primeira casa. Potência, cor da luz, encaixe e local de instalação são confirmados antes da compra.';
   if(category==='banheiro')return 'Item hidráulico para banheiro, cozinha ou lavanderia. Medidas, roscas, pressão e espaço de instalação precisam ser compatíveis.';
+  if(category==='fechaduras')return 'Fechadura eletrônica para facilitar o acesso e melhorar o controle da porta. Medidas, espessura, material e sentido de abertura precisam ser compatíveis.';
+  if(category==='automacao')return 'Dispositivo para controlar iluminação ou equipamentos pelo aplicativo. Wi-Fi 2,4 GHz, caixa, fiação, neutro e carga precisam ser conferidos antes.';
   return 'Item para completar a instalação da primeira casa, com aplicação e compatibilidade confirmadas pela ROVAN antes do pedido.';
 }
 const DEFAULT_PRODUCTS=[...SECURITY_PRODUCTS,...INFRASTRUCTURE_PRODUCTS,...KYTE_CATALOG.map(([name,price,category,image],index)=>({
   id:`kyte-${String(index+1).padStart(3,'0')}`,name,price,category,
+  ...(name.includes('INTELBRAS')?{brand:'Intelbras'}:{}),
+  ...(name.includes('INTERRUPTOR SMART')?{brands:['AGL','Intelbras']}:{}),
+  ...((name.includes('INTERRUPTOR SMART')||name.includes('TOMADA DUPLA'))?{variants:['Acabamento branco ou preto conforme a linha','Wi-Fi 2,4 GHz','Confirmar neutro, caixa e corrente do circuito']}:{}) ,
   image:`${KYTE_IMAGE_BASE}${image}.jpg?alt=media`,description:catalogDescription(name,category),active:true,source:'Kyte'
 }))];
