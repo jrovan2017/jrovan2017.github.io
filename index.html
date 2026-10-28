@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
   <header class="topbar">
@@ -97,7 +97,7 @@
         <div>
           <span class="eyebrow">ROVAN • PRODUTOS E INSTALAÇÃO</span>
           <h2>Mais do que vender, entregamos funcionando</h2>
-          <p class="catalog-lead">A ROVAN ajuda a escolher o produto adequado, confirma as condições do local e combina o fornecimento com a instalação. Você sabe o que será feito antes de aprovar.</p>
+          <p class="catalog-lead">Primeiro você escolhe o produto e vê o valor dele. Depois decide se quer que a ROVAN instale — a mão de obra aparece separadamente, antes de adicionar ao pedido.</p>
         </div>
         <label class="search" id="catalogSearch" hidden><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar nesta linha" aria-label="Buscar na linha selecionada"></label>
       </div>
@@ -106,6 +106,10 @@
         <article><span>02</span><div><strong>Instalação profissional</strong><p>Serviço explicado, executado e testado pela ROVAN.</p></div></article>
         <article><span>03</span><div><strong>Entrega com suporte</strong><p>Orientação de uso e atendimento para tirar dúvidas.</p></div></article>
       </div>
+      <aside class="store-video">
+        <div><span class="eyebrow">ENTENDA EM 35 SEGUNDOS</span><h3>Você escolhe.<br>Nós instalamos.</h3><p>Veja como funciona desde a escolha do produto até a entrega com tudo instalado, configurado e testado.</p><small>O vídeo só começa quando você apertar o play.</small></div>
+        <video controls playsinline preload="metadata" poster="assets/rovan-como-funciona-poster.jpg" aria-label="Vídeo explicativo sobre a loja ROVAN"><source src="assets/rovan-como-funciona.mp4" type="video/mp4">Seu navegador não consegue reproduzir este vídeo.</video>
+      </aside>
       <p class="catalog-instruction" id="catalogInstruction">Selecione uma linha para conhecer somente os produtos e serviços relacionados.</p>
       <div class="filters catalog-lines" id="filters" aria-label="Escolher uma linha de produtos e serviços">
         <button type="button" data-filter="essenciais"><span>⌁</span><strong>Elétrica e utilidades</strong><small>Tomadas, extensões e itens essenciais</small></button>
@@ -123,7 +127,7 @@
           <button type="button" data-open-planner>Tire sua dúvida →</button>
         </aside>
         <p class="catalog-count" id="catalogCount"></p>
-        <p class="catalog-price-note">Preços-base de referência. Modelo, disponibilidade, materiais adicionais e instalação são confirmados antes do pedido.</p>
+        <p class="catalog-price-note"><strong>O preço exibido no cartão é somente do produto.</strong> Ao escolher um item, você decide se quer a instalação e vê a projeção da mão de obra separadamente.</p>
         <div class="product-grid" id="productGrid"></div>
         <p class="empty-state" id="emptyState" hidden>Nenhum item encontrado. Tente outra busca.</p>
       </div>
@@ -144,11 +148,11 @@
         <div class="section-heading">
           <span class="eyebrow">INSTALAÇÃO PROFISSIONAL</span>
           <h2>A instalação certa aparece junto do produto</h2>
-          <p>Cada item do catálogo informa sua própria projeção de mão de obra, o que está incluído e as condições que podem alterar o valor. Assim, você vê somente as informações pertinentes ao que escolheu.</p>
+          <p>A projeção de mão de obra fica escondida para manter a vitrine limpa. Ela só aparece depois que você escolhe um produto e pede que a ROVAN instale.</p>
         </div>
         <img class="service-presenter" src="assets/apresentador-rovan-instalacao-loja.png" alt="Técnico ROVAN apresentando uma instalação elétrica">
       </div>
-      <div class="installation-explainer"><strong>Como consultar:</strong><span>Escolha um produto e toque em “Projeção de instalação”. A tela mostrará estimativa, escopo, condições e referências específicas daquele serviço.</span><a href="#catalogo">Ver produtos →</a></div>
+      <div class="installation-explainer"><strong>Como consultar:</strong><span>Escolha um produto, responda “Você quer que a ROVAN instale?” e, se disser sim, veja o valor da mão de obra, o escopo e as condições daquele serviço.</span><a href="#catalogo">Ver produtos →</a></div>
     </section>
 
     <section class="section payment-section" id="pagamento">
@@ -200,8 +204,16 @@
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-empty" id="cartEmpty"><span>⌂</span><p>Seu carrinho está vazio.</p><small>Escolha produtos ou monte uma solução.</small></div>
     <div class="cart-summary" id="cartSummary">
-      <label class="install-toggle"><input type="checkbox" id="installRequest" checked><span>Incluir instalação profissional (recomendado)</span></label>
-      <label class="service-location"><span>Onde será a entrega ou instalação?</span><input id="serviceLocation" type="text" placeholder="Cidade e bairro"></label>
+      <div class="install-toggle"><span>✓ A instalação é escolhida separadamente em cada produto.</span></div>
+      <div class="customer-fields">
+        <label><span>Seu nome</span><input id="customerName" type="text" autocomplete="name" placeholder="Como podemos chamar você?"></label>
+        <label><span>Telefone / WhatsApp</span><input id="customerPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(51) 99999-9999"></label>
+        <label class="wide"><span>Endereço completo da entrega ou instalação</span><input id="serviceAddress" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e cidade"></label>
+        <label class="wide"><span>Complemento ou ponto de referência <small>(opcional)</small></span><input id="serviceReference" type="text" placeholder="Apartamento, bloco ou referência próxima"></label>
+        <label><span>Melhor dia <small>(preferência)</small></span><input id="preferredDate" type="date"></label>
+        <label><span>Melhor período</span><select id="preferredPeriod"><option>Manhã</option><option>Tarde</option><option>Horário comercial</option><option>Sábado</option><option>A combinar</option></select></label>
+      </div>
+      <small class="schedule-note">A data é uma preferência. A ROVAN confirma o agendamento pelo WhatsApp.</small>
       <label class="payment-choice"><span>Como prefere pagar após a confirmação?</span><select id="paymentPreference"><option value="Quero receber as opções no orçamento">Quero receber as opções no orçamento</option><option value="Pix após confirmação">Pix após confirmação</option><option value="Link de cartão após confirmação">Link de cartão após confirmação</option><option value="Pagamento presencial na entrega/instalação">Pagamento presencial na entrega/instalação</option><option value="Solução personalizada: materiais antecipados e mão de obra por etapas">Solução personalizada: materiais antecipados e mão de obra por etapas</option></select></label>
       <div><span>Subtotal dos produtos</span><strong id="cartTotal">R$ 0,00</strong></div>
       <small>Este é um pedido de confirmação, não uma cobrança. A ROVAN verifica disponibilidade e envia as condições antes de receber qualquer valor.</small>
@@ -287,18 +299,26 @@
   <div class="modal" id="installationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="installationProductName">
     <div class="modal-card installation-card">
       <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
-      <span class="eyebrow">PROJEÇÃO DE INSTALAÇÃO</span>
+      <span class="eyebrow">ESCOLHA DO PEDIDO</span>
       <div class="installation-product-head">
         <div class="installation-product-image" id="installationProductImage"></div>
-        <div><h2 id="installationProductName">Produto</h2><p>Estimativa inicial para você entender o serviço antes de confirmar o pedido.</p></div>
+        <div><h2 id="installationProductName">Produto</h2><p>O valor abaixo é somente do produto. A instalação é opcional e aparece separadamente.</p><div class="choice-product-price"><span>VALOR DO PRODUTO</span><strong id="installationProductPrice">Sob consulta</strong></div></div>
       </div>
-      <div class="installation-estimate"><span id="installationEstimateLabel">Instalação</span><strong id="installationEstimateValue">Sob análise</strong><small id="installationEstimateUnit"></small></div>
-      <div class="installation-details-grid">
-        <section><h3>O que está incluído</h3><ul id="installationIncluded"></ul></section>
-        <section><h3>O que pode alterar o valor</h3><p id="installationConditions"></p></section>
+      <div class="installation-question" id="installationQuestion">
+        <strong>Você quer que a ROVAN instale este produto?</strong>
+        <p>Escolha uma opção para continuar.</p>
+        <div><button class="button secondary" type="button" id="productOnlyAdd">Não, quero somente o produto</button><button class="button primary" type="button" id="showInstallation">Sim, quero que a ROVAN instale</button></div>
       </div>
-      <div class="installation-reference"><strong>Condições e referências pertinentes</strong><p id="installationReference"></p><small>A projeção não é cobrança. O valor final e o escopo são confirmados antes do serviço.</small></div>
-      <div class="installation-actions"><button class="button primary" type="button" id="installationAdd">Adicionar produto + solicitar instalação</button><button class="button secondary" type="button" id="installationSurvey">Enviar informações do local</button></div>
+      <div class="installation-reveal" id="installationReveal" hidden>
+        <div class="installation-estimate"><span id="installationEstimateLabel">Mão de obra estimada</span><strong id="installationEstimateValue">Sob análise</strong><small id="installationEstimateUnit"></small></div>
+        <div class="installation-separation"><span><small>PRODUTO</small><strong id="installationProductPriceRepeat">Sob consulta</strong></span><b>+</b><span><small>MÃO DE OBRA</small><strong id="installationLaborPriceRepeat">Sob análise</strong></span></div>
+        <div class="installation-details-grid">
+          <section><h3>O que está incluído</h3><ul id="installationIncluded"></ul></section>
+          <section><h3>O que pode alterar o valor</h3><p id="installationConditions"></p></section>
+        </div>
+        <div class="installation-reference"><strong>Condições e referências pertinentes</strong><p id="installationReference"></p><small>A projeção não é cobrança. O valor final e o escopo são confirmados antes do serviço.</small></div>
+        <div class="installation-actions"><button class="button primary" type="button" id="installationAdd">Adicionar produto + solicitar instalação</button><button class="button secondary" type="button" id="installationSurvey">Enviar informações do local</button></div>
+      </div>
     </div>
   </div>
 
@@ -336,7 +356,7 @@
 
   <div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="catalog-data.js?v=10"></script>
-  <script src="app-v3.js?v=10"></script>
+  <script src="catalog-data.js?v=11"></script>
+  <script src="app-v3.js?v=11"></script>
 </body>
 </html>
