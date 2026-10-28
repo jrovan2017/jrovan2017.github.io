@@ -142,13 +142,13 @@ const SECURITY_PRODUCTS=[
   },
   {
     id:'motor-basculante-14',name:'Motor para portão basculante 1/4 HP — residencial',price:899.9,pricePrefix:'A partir de',category:'portoes',
-    image:'assets/motor-basculante-ppa.webp',
+    image:'assets/motor-basculante-ppa.webp?v=2',
     description:'Automatizador para portão basculante residencial leve e balanceado. Curso do acionador, lado de instalação e estrutura são definidos no local.',
     included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],brands:['Deltamovi','AGL','Garen','PPA','Contel','Intelbras'],variants:['Escolha a marca no filtro','Wi-Fi opcional'],active:true,source:'ROVAN'
   },
   {
     id:'motor-basculante-13',name:'Motor para portão basculante 1/3 HP — semirrápido',price:1199.9,pricePrefix:'A partir de',category:'portoes',
-    image:'assets/motor-basculante-ppa.webp',
+    image:'assets/motor-basculante-ppa.webp?v=2',
     description:'Para basculante mais pesado ou de uso mais frequente. O portão precisa estar estruturalmente íntegro, alinhado e corretamente balanceado.',
     included:['Motor e acionador compatível','Central de comando','2 controles remotos','Suportes de fixação'],brands:['Deltamovi','AGL','Garen','PPA','Contel','Intelbras'],variants:['Escolha a marca no filtro','Semirrápido e Wi-Fi opcionais'],active:true,source:'ROVAN'
   },
