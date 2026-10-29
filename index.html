@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <header class="topbar">
@@ -279,6 +279,21 @@
     </div>
   </div>
 
+  <div class="modal" id="firstMoveModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="firstMoveTitle">
+    <div class="modal-card first-move-card">
+      <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
+      <span class="eyebrow">SUA PRIMEIRA MUDANÇA</span>
+      <h2 id="firstMoveTitle">Monte a lista da casa por ambiente</h2>
+      <p>Marque somente o que precisa e ajuste as quantidades. Antes da compra, a ROVAN confirma modelos, tensão, medidas e compatibilidade.</p>
+      <div class="first-move-progress"><strong id="firstMoveCount">0 itens selecionados</strong><span>A lista fica salva neste aparelho.</span></div>
+      <form id="firstMoveForm">
+        <div class="first-move-rooms" id="firstMoveRooms"></div>
+        <label class="first-move-install"><input type="checkbox" id="firstMoveInstallation" checked><span><strong>Quero que a ROVAN instale os itens selecionados</strong><small>A mão de obra será calculada conforme a lista, as fotos e as condições do imóvel.</small></span></label>
+        <div class="first-move-actions"><button class="button secondary" type="button" id="firstMoveClear">Limpar lista</button><button class="button primary" type="submit">Adicionar lista ao pedido</button></div>
+      </form>
+    </div>
+  </div>
+
   <div class="modal" id="installationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="installationProductName">
     <div class="modal-card installation-card">
       <button class="modal-close" type="button" data-close aria-label="Fechar">×</button>
@@ -340,6 +355,6 @@
   <div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="catalog-data.js?v=13"></script>
-  <script src="app-v3.js?v=13"></script>
+  <script src="app-v3.js?v=14"></script>
 </body>
 </html>
