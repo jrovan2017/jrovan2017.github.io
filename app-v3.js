@@ -14,6 +14,7 @@ const CATEGORY_TIPS={
   kits:{title:'Kit pronto ainda precisa combinar com o imóvel',text:'Quantidade de sensores, alcance do Wi-Fi, rotas de cabo e pontos de energia devem ser conferidos antes da compra.'}
 };
 const ROVAN_WHATSAPP='5551995607385';
+const CATEGORY_PAGE=document.body.classList.contains('category-page');
 const STORAGE_KEY='rovan-products-v9';
 const storedProducts=load(STORAGE_KEY,[]);
 const mergedProducts=[...DEFAULT_PRODUCTS.map(p=>storedProducts.find(saved=>saved.id===p.id)||p),...storedProducts.filter(p=>!DEFAULT_PRODUCTS.some(base=>base.id===p.id))];
@@ -166,8 +167,8 @@ function renderCart(){const entries=Object.entries(state.cart).filter(([id])=>st
 function openLayer(el){el.classList.add('open');el.setAttribute('aria-hidden','false');$('#overlay').classList.add('show');document.body.style.overflow='hidden'}
 function closeLayers(){$$('.open').forEach(x=>x.classList.remove('open'));$$('[aria-hidden="false"]').forEach(x=>x.setAttribute('aria-hidden','true'));$('#overlay').classList.remove('show');document.body.style.overflow=''}
 function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2400)}
-function filterTo(category){state.filter=category;state.brand='todas';state.query='';$('#searchInput').value='';$$('[data-filter]').forEach(b=>b.classList.toggle('active',b.dataset.filter===category));renderProducts();$('#catalogo').scrollIntoView({behavior:'smooth'})}
-function closeCatalogLine(){state.filter=null;state.brand='todas';state.query='';$('#searchInput').value='';$$('[data-filter]').forEach(b=>b.classList.remove('active'));renderProducts();$('#catalogo').scrollIntoView({behavior:'smooth'})}
+function filterTo(category){if(!CATEGORY_PAGE){window.location.href=`categoria.html?linha=${encodeURIComponent(category)}`;return}state.filter=category;state.brand='todas';state.query='';$('#searchInput').value='';$$('[data-filter]').forEach(b=>b.classList.toggle('active',b.dataset.filter===category));if($('#categoryPageTitle'))$('#categoryPageTitle').textContent=CATEGORY_NAMES[category]||'Produtos';document.title=`${CATEGORY_NAMES[category]||'Produtos'} | ROVAN`;history.replaceState(null,'',`categoria.html?linha=${encodeURIComponent(category)}`);renderProducts();window.scrollTo({top:0,behavior:'smooth'})}
+function closeCatalogLine(){if(CATEGORY_PAGE){window.location.href='index.html?atualizado=14#catalogo';return}state.filter=null;state.brand='todas';state.query='';$('#searchInput').value='';$$('[data-filter]').forEach(b=>b.classList.remove('active'));renderProducts();$('#catalogo').scrollIntoView({behavior:'smooth'})}
 function openInstallation(id){
   const p=state.products.find(x=>x.id===id);if(!p)return;const i=installationProfile(p);state.installationProductId=id;
   $('#installationProductImage').innerHTML=productImage(p);
@@ -225,4 +226,4 @@ $('#cancelEdit').onclick=resetForm;$('#deleteProduct').onclick=()=>{const p=stat
 $('#exportCatalog').onclick=()=>{const blob=new Blob([JSON.stringify(state.products,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='catalogo-rovan.json';a.click();URL.revokeObjectURL(a.href);toast('Backup do catálogo exportado')};
 $('#importCatalog').onchange=e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);if(!Array.isArray(data))throw 0;state.products=data;save();renderProducts();renderAdmin();toast('Catálogo importado')}catch{toast('Arquivo de catálogo inválido')}};reader.readAsText(file)};
 $('#resetCatalog').onclick=()=>{if(!confirm('Restaurar o catálogo padrão ROVAN e os produtos trazidos da Kyte? Alterações locais serão substituídas.'))return;state.products=clone(DEFAULT_PRODUCTS);state.cart={};state.installations={};state.customizations={};state.customizationPrices={};state.brandPreferences={};state.brand='todas';save();resetForm();renderProducts();renderCart();renderAdmin();toast('Catálogo padrão restaurado')};
-$('#preferredDate').min=new Date().toISOString().split('T')[0];renderProducts();renderCart();
+const initialCategory=new URLSearchParams(window.location.search).get('linha');if(CATEGORY_PAGE){const resolvedCategory=CATEGORY_NAMES[initialCategory]?initialCategory:'essenciais';state.filter=resolvedCategory;$('#categoryPageTitle').textContent=CATEGORY_NAMES[resolvedCategory];$('#closeCatalogLine').textContent='← Todas as linhas';document.title=`${CATEGORY_NAMES[resolvedCategory]} | ROVAN`}$('#preferredDate').min=new Date().toISOString().split('T')[0];renderProducts();renderCart();
