@@ -16,20 +16,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=18">
 </head>
 <body class="enterprise-page">
   <header class="topbar">
-    <a class="brand" href="index.html?atualizado=17" aria-label="ROVAN, voltar para a loja">
+    <a class="brand" href="index.html?atualizado=18" aria-label="ROVAN, voltar para a loja">
       <img class="brand-logo" src="assets/logo-rovan.png" alt="">
       <span><strong>ROVAN</strong><small>Soluções técnicas em campo</small></span>
     </a>
     <nav aria-label="Navegação corporativa">
       <a href="#atuacao">Atuação</a>
+      <a href="#videos">Vídeos</a>
       <a href="#processo">Como trabalhamos</a>
       <a href="#contato">Falar com a ROVAN</a>
     </nav>
-    <a class="button secondary" href="index.html?atualizado=17">Voltar para a loja</a>
+    <a class="button secondary" href="index.html?atualizado=18">Voltar para a loja</a>
   </header>
 
   <main>
@@ -67,6 +68,33 @@
       </div>
     </section>
 
+    <section class="enterprise-section enterprise-videos" id="videos">
+      <div class="enterprise-section-heading">
+        <span class="eyebrow">ROVAN EM CAMPO</span>
+        <h2>Veja como a parceria funciona na prática.</h2>
+        <p>Escolha um tema para conhecer algumas das soluções que a ROVAN pode executar em conjunto com empresas, distribuidoras e integradores.</p>
+      </div>
+      <div class="enterprise-video-layout">
+        <div class="enterprise-video-player">
+          <video id="enterpriseVideo" controls playsinline preload="metadata" poster="assets/videos-empresas/parceria-desde-a-obra.jpg" aria-label="Vídeo sobre parceria técnica da ROVAN">
+            <source src="assets/videos-empresas/parceria-desde-a-obra.mp4" type="video/mp4">
+            Seu navegador não consegue reproduzir este vídeo.
+          </video>
+          <div class="enterprise-video-caption"><span id="enterpriseVideoTag">PARCERIA TÉCNICA</span><strong id="enterpriseVideoTitle">Parceria desde a obra</strong><p id="enterpriseVideoText">A ROVAN entra como equipe de execução para transformar o projeto aprovado em uma entrega organizada em campo.</p></div>
+        </div>
+        <div class="enterprise-video-menu" role="list" aria-label="Escolha um vídeo">
+          <button class="is-active" type="button" data-video="parceria-desde-a-obra.mp4" data-tag="PARCERIA TÉCNICA" data-title="Parceria desde a obra" data-text="A ROVAN entra como equipe de execução para transformar o projeto aprovado em uma entrega organizada em campo."><b>01</b><span><strong>Parceria desde a obra</strong><small>Planejamento, execução e entrega técnica.</small></span></button>
+          <button type="button" data-video="condominio-pos-obra.mp4" data-tag="CONDOMÍNIOS" data-title="Condomínio pós-obra" data-text="Apoio técnico para organizar pendências, implantações e melhorias após a entrega do empreendimento."><b>02</b><span><strong>Condomínio pós-obra</strong><small>Soluções para implantação e adequação.</small></span></button>
+          <button type="button" data-video="postelete-marca-parceira.mp4" data-tag="MARCA PARCEIRA" data-title="Postelete com a identidade da empresa" data-text="Execução técnica alinhada à identidade e ao padrão comercial definidos pela contratante."><b>03</b><span><strong>Postelete com marca parceira</strong><small>Execução alinhada à sua identidade.</small></span></button>
+          <button type="button" data-video="instalacao-terceirizada.mp4" data-tag="DISTRIBUIDORAS" data-title="Instalação terceirizada" data-text="Sua empresa vende o equipamento e a ROVAN assume a instalação programada em campo."><b>04</b><span><strong>Instalação terceirizada</strong><small>Capacidade técnica sem ampliar equipe fixa.</small></span></button>
+          <button type="button" data-video="instalacao-em-obras.mp4" data-tag="OBRAS" data-title="Instalação em obras" data-text="Equipe técnica para executar etapas definidas do projeto, com testes e registros de entrega."><b>05</b><span><strong>Instalação em obras</strong><small>Execução por escopo e cronograma.</small></span></button>
+          <button type="button" data-video="solucoes-condominios.mp4" data-tag="CONDOMÍNIOS" data-title="Soluções para condomínios" data-text="Implantações, adequações e apoio de campo para demandas planejadas em condomínios."><b>06</b><span><strong>Soluções para condomínios</strong><small>Projetos e demandas programadas.</small></span></button>
+          <button type="button" data-video="prestacao-servicos.mp4" data-tag="SERVIÇOS TÉCNICOS" data-title="Prestação de serviços" data-text="A ROVAN reforça a capacidade de execução da contratante conforme o escopo e a região combinados."><b>07</b><span><strong>Prestação de serviços</strong><small>Equipe técnica sob demanda.</small></span></button>
+          <button type="button" data-video="postelete-vigilancia.mp4" data-tag="PROJETOS ESPECIAIS" data-title="Postelete de vigilância" data-text="Solução personalizada para projetos que exigem presença visual, infraestrutura e instalação profissional."><b>08</b><span><strong>Postelete de vigilância</strong><small>Projeto personalizado e instalação.</small></span></button>
+        </div>
+      </div>
+    </section>
+
     <section class="enterprise-section enterprise-process" id="processo">
       <div class="enterprise-section-heading">
         <span class="eyebrow">PROCESSO CLARO</span>
@@ -98,7 +126,28 @@
   <footer>
     <div class="brand footer-brand"><img class="brand-logo" src="assets/logo-rovan.png" alt=""><span><strong>ROVAN</strong><small>Soluções técnicas em campo</small></span></div>
     <p>Parcerias avaliadas conforme escopo, região, prazo e disponibilidade operacional.</p>
-    <a class="enterprise-back" href="index.html?atualizado=17">← Voltar para a Loja ROVAN</a>
+    <a class="enterprise-back" href="index.html?atualizado=18">← Voltar para a Loja ROVAN</a>
   </footer>
+  <script>
+    (() => {
+      const video = document.getElementById('enterpriseVideo');
+      const buttons = [...document.querySelectorAll('.enterprise-video-menu button')];
+      const tag = document.getElementById('enterpriseVideoTag');
+      const title = document.getElementById('enterpriseVideoTitle');
+      const text = document.getElementById('enterpriseVideoText');
+      buttons.forEach(button => button.addEventListener('click', () => {
+        buttons.forEach(item => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+        video.pause();
+        video.poster = `assets/videos-empresas/${button.dataset.video.replace('.mp4', '.jpg')}`;
+        video.src = `assets/videos-empresas/${button.dataset.video}`;
+        video.load();
+        tag.textContent = button.dataset.tag;
+        title.textContent = button.dataset.title;
+        text.textContent = button.dataset.text;
+        video.focus({preventScroll:true});
+      }));
+    })();
+  </script>
 </body>
 </html>
