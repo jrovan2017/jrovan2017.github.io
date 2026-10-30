@@ -16,11 +16,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body class="enterprise-page">
   <header class="topbar">
-    <a class="brand" href="index.html?atualizado=19" aria-label="ROVAN, voltar para a loja">
+    <a class="brand" href="index.html?atualizado=20" aria-label="ROVAN, voltar para a loja">
       <img class="brand-logo" src="assets/logo-rovan.png" alt="">
       <span><strong>ROVAN</strong><small>Soluções técnicas em campo</small></span>
     </a>
@@ -30,7 +30,7 @@
       <a href="#processo">Como trabalhamos</a>
       <a href="#contato">Falar com a ROVAN</a>
     </nav>
-    <a class="button secondary" href="index.html?atualizado=19">Voltar para a loja</a>
+    <a class="button secondary" href="index.html?atualizado=20">Voltar para a loja</a>
   </header>
 
   <main>
@@ -74,19 +74,40 @@
         <h2>Veja como a parceria funciona na prática.</h2>
         <p>Escolha um tema para conhecer algumas das soluções que a ROVAN pode executar em conjunto com empresas, distribuidoras e integradores.</p>
       </div>
-      <div class="enterprise-video-layout">
-        <div class="enterprise-video-player">
-          <video id="enterpriseVideo" controls playsinline preload="metadata" poster="assets/videos-empresas/parceria-desde-a-obra.jpg" aria-label="Vídeo sobre parceria técnica da ROVAN">
-            <source src="assets/videos-empresas/parceria-desde-a-obra.mp4" type="video/mp4">
-            Seu navegador não consegue reproduzir este vídeo.
-          </video>
-          <div class="enterprise-video-caption"><span id="enterpriseVideoTag">PARCERIA TÉCNICA</span><strong id="enterpriseVideoTitle">Parceria desde a obra</strong><p id="enterpriseVideoText">A ROVAN entra como equipe de execução para transformar o projeto aprovado em uma entrega organizada em campo.</p></div>
-        </div>
-        <div class="enterprise-video-menu" role="list" aria-label="Escolha um vídeo">
-          <button class="is-active" type="button" data-video="parceria-desde-a-obra.mp4" data-tag="PARCERIA TÉCNICA" data-title="Parceria desde a obra" data-text="A ROVAN entra como equipe de execução para transformar o projeto aprovado em uma entrega organizada em campo."><b>01</b><span><strong>Parceria desde a obra</strong><small>Planejamento, execução e entrega técnica.</small></span></button>
-          <button type="button" data-video="condominio-pos-obra.mp4" data-tag="CONDOMÍNIOS" data-title="Condomínio pós-obra" data-text="Apoio técnico para organizar pendências, implantações e melhorias após a entrega do empreendimento."><b>02</b><span><strong>Condomínio pós-obra</strong><small>Soluções para implantação e adequação.</small></span></button>
-          <button type="button" data-video="postelete-marca-parceira.mp4" data-tag="MARCA PARCEIRA" data-title="Postelete com a identidade da empresa" data-text="Execução técnica alinhada à identidade e ao padrão comercial definidos pela contratante."><b>03</b><span><strong>Postelete com marca parceira</strong><small>Execução alinhada à sua identidade.</small></span></button>
-        </div>
+      <div class="enterprise-video-gallery" aria-label="Vídeos da atuação corporativa">
+        <article class="enterprise-video-story">
+          <div class="enterprise-video-media">
+            <button class="enterprise-video-cover" type="button" aria-label="Assistir ao vídeo Parceria desde a obra">
+              <img src="assets/videos-empresas/parceria-desde-a-obra.jpg" alt="Equipe ROVAN analisando um projeto antes da execução">
+              <span class="enterprise-video-shade"></span>
+              <span class="enterprise-video-cover-copy"><small>PARCERIA TÉCNICA</small><strong>Parceria desde a obra</strong><span class="enterprise-watch"><i>▶</i> Assistir ao vídeo</span></span>
+            </button>
+            <video hidden controls playsinline preload="metadata" poster="assets/videos-empresas/parceria-desde-a-obra.jpg" aria-label="Vídeo Parceria desde a obra"><source src="assets/videos-empresas/parceria-desde-a-obra.mp4" type="video/mp4">Seu navegador não consegue reproduzir este vídeo.</video>
+          </div>
+          <p>Planejamento, execução e entrega técnica desde o início do projeto.</p>
+        </article>
+        <article class="enterprise-video-story">
+          <div class="enterprise-video-media">
+            <button class="enterprise-video-cover" type="button" aria-label="Assistir ao vídeo Condomínio pós-obra">
+              <img src="assets/videos-empresas/condominio-pos-obra.jpg" alt="Condomínio recebendo soluções técnicas após a obra">
+              <span class="enterprise-video-shade"></span>
+              <span class="enterprise-video-cover-copy"><small>CONDOMÍNIOS</small><strong>Condomínio pós-obra</strong><span class="enterprise-watch"><i>▶</i> Assistir ao vídeo</span></span>
+            </button>
+            <video hidden controls playsinline preload="metadata" poster="assets/videos-empresas/condominio-pos-obra.jpg" aria-label="Vídeo Condomínio pós-obra"><source src="assets/videos-empresas/condominio-pos-obra.mp4" type="video/mp4">Seu navegador não consegue reproduzir este vídeo.</video>
+          </div>
+          <p>Implantações, adequações e melhorias depois da entrega do empreendimento.</p>
+        </article>
+        <article class="enterprise-video-story">
+          <div class="enterprise-video-media">
+            <button class="enterprise-video-cover" type="button" aria-label="Assistir ao vídeo Postelete com marca parceira">
+              <img src="assets/videos-empresas/postelete-marca-parceira.jpg" alt="Postelete de segurança com a identidade da empresa parceira">
+              <span class="enterprise-video-shade"></span>
+              <span class="enterprise-video-cover-copy"><small>IDENTIDADE PARCEIRA</small><strong>Postelete com a sua marca</strong><span class="enterprise-watch"><i>▶</i> Assistir ao vídeo</span></span>
+            </button>
+            <video hidden controls playsinline preload="metadata" poster="assets/videos-empresas/postelete-marca-parceira.jpg" aria-label="Vídeo Postelete com marca parceira"><source src="assets/videos-empresas/postelete-marca-parceira.mp4" type="video/mp4">Seu navegador não consegue reproduzir este vídeo.</video>
+          </div>
+          <p>Execução técnica alinhada à identidade e ao padrão comercial da contratante.</p>
+        </article>
       </div>
     </section>
 
@@ -121,27 +142,34 @@
   <footer>
     <div class="brand footer-brand"><img class="brand-logo" src="assets/logo-rovan.png" alt=""><span><strong>ROVAN</strong><small>Soluções técnicas em campo</small></span></div>
     <p>Parcerias avaliadas conforme escopo, região, prazo e disponibilidade operacional.</p>
-    <a class="enterprise-back" href="index.html?atualizado=19">← Voltar para a Loja ROVAN</a>
+    <a class="enterprise-back" href="index.html?atualizado=20">← Voltar para a Loja ROVAN</a>
   </footer>
   <script>
     (() => {
-      const video = document.getElementById('enterpriseVideo');
-      const buttons = [...document.querySelectorAll('.enterprise-video-menu button')];
-      const tag = document.getElementById('enterpriseVideoTag');
-      const title = document.getElementById('enterpriseVideoTitle');
-      const text = document.getElementById('enterpriseVideoText');
-      buttons.forEach(button => button.addEventListener('click', () => {
-        buttons.forEach(item => item.classList.remove('is-active'));
-        button.classList.add('is-active');
-        video.pause();
-        video.poster = `assets/videos-empresas/${button.dataset.video.replace('.mp4', '.jpg')}`;
-        video.src = `assets/videos-empresas/${button.dataset.video}`;
-        video.load();
-        tag.textContent = button.dataset.tag;
-        title.textContent = button.dataset.title;
-        text.textContent = button.dataset.text;
-        video.focus({preventScroll:true});
-      }));
+      const stories = [...document.querySelectorAll('.enterprise-video-story')];
+      stories.forEach(story => {
+        const cover = story.querySelector('.enterprise-video-cover');
+        const video = story.querySelector('video');
+        cover.addEventListener('click', () => {
+          stories.forEach(other => {
+            const otherCover = other.querySelector('.enterprise-video-cover');
+            const otherVideo = other.querySelector('video');
+            if (other !== story) {
+              otherVideo.pause();
+              otherVideo.currentTime = 0;
+              otherVideo.hidden = true;
+              otherCover.hidden = false;
+            }
+          });
+          cover.hidden = true;
+          video.hidden = false;
+          video.play().catch(() => {});
+        });
+        video.addEventListener('ended', () => {
+          video.hidden = true;
+          cover.hidden = false;
+        });
+      });
     })();
   </script>
 </body>
