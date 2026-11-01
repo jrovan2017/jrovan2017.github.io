@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071a33">
+  <meta name="description" content="ROVAN Campo - ordens de serviço, materiais, ferramentas e registro fotográfico.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="quick.css">
+  <link rel="stylesheet" href="insights.css">
+  <title>ROVAN Campo</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="icon.svg" alt=""><div><strong>ROVAN Campo</strong><span>Você escolhe. Nós instalamos.</span></div></div>
+    <div class="top-actions"><span id="offlineBadge" class="status-pill">Verificando conexão</span><button id="installBtn" class="ghost hidden">Instalar app</button></div>
+  </header>
+
+  <main class="shell">
+    <section id="homeView" class="view active">
+      <div class="hero">
+        <div><span class="eyebrow">Equipe técnica</span><h1>Serviço documentado do início ao fim.</h1><p>Ordens de serviço, veículo, materiais, ferramentas, fotos e observações salvos no aparelho, mesmo sem internet.</p></div>
+        <button id="newOrderBtn" class="primary large">+ Nova ordem de serviço</button>
+      </div>
+      <div class="summary-grid">
+        <article><b id="countOpen">0</b><span>Em andamento</span></article>
+        <article><b id="countDone">0</b><span>Concluídas</span></article>
+        <article><b id="countDraft">0</b><span>Rascunhos</span></article>
+      </div>
+      <div class="card"><div class="card-head"><div><span class="eyebrow">Aprendizado para orçamentos</span><h3>Médias dos serviços concluídos</h3></div></div><div id="insightList" class="insights"><p class="hint">Conclua serviços para formar comparativos de tempo, equipe e deslocamento.</p></div></div>
+      <div class="section-head"><div><span class="eyebrow">Registros locais</span><h2>Ordens de serviço</h2></div><button id="importBtn" class="ghost">Importar backup</button><input id="importInput" type="file" accept="application/json" hidden></div>
+      <div id="orderList" class="order-list"></div>
+    </section>
+
+    <section id="orderView" class="view">
+      <div class="order-head">
+        <button id="backBtn" class="icon-btn" aria-label="Voltar">←</button>
+        <div><span id="orderStatus" class="eyebrow">Rascunho</span><h1 id="orderTitle">Nova ordem de serviço</h1></div>
+        <button id="saveBtn" class="primary">Salvar</button>
+      </div>
+
+      <nav id="stepNav" class="step-nav" aria-label="Etapas">
+        <button data-step="0" class="active">1. Serviço</button><button data-step="1">2. Veículo</button><button data-step="2">3. Materiais</button><button data-step="3">4. Ferramentas</button><button data-step="4">5. Execução</button><button data-step="5">6. Telhado</button><button data-step="6">7. Conclusão</button>
+      </nav>
+
+      <form id="orderForm" novalidate>
+        <section class="form-step active" data-step="0">
+          <div class="step-title"><span>01</span><div><h2>Cliente e serviço</h2><p>Identifique o atendimento e registre as orientações recebidas.</p></div></div>
+          <div class="card grid-2">
+            <label>Cliente<input name="clientName" required></label><label>Telefone<input name="clientPhone" inputmode="tel"></label>
+            <label class="wide">Endereço completo<input name="address" required></label><label>Cidade<input name="city"></label><label>CEP<input name="zip" inputmode="numeric"></label>
+            <label>Pedido/orçamento<input name="reference"></label><label>Tipo de serviço<select name="serviceType"><option>Instalação</option><option>Manutenção</option><option>Vistoria</option><option>Retorno técnico</option><option>Garantia</option></select></label>
+            <label class="wide">Descrição do serviço<textarea name="serviceDescription" rows="4" required></textarea></label>
+            <label class="wide">Orientações da loja / orçamento<textarea name="storeGuidance" rows="3"></textarea></label>
+            <label>Tempo estimado no orçamento (horas)<input name="estimatedHours" inputmode="decimal"></label><label>Tamanho previsto da equipe<input name="estimatedTeam" inputmode="numeric"></label>
+            <label class="wide">Fatores de complexidade<textarea name="complexity" rows="2" placeholder="Altura, telhado, forro, tubulação, escavação, distância, acesso restrito..."></textarea></label>
+            <label class="wide">Avarias ou condições preexistentes<textarea name="preExistingDamage" rows="3" placeholder="Trincas, telhas, infiltrações, pintura, equipamentos existentes, pontos sem energia..."></textarea></label>
+            <label class="wide">Observações desta etapa<textarea name="obsService" rows="3"></textarea></label>
+          </div>
+          <div class="card"><h3>Fotos do local antes da intervenção</h3><p class="hint">Registre visão geral, pontos de instalação e qualquer avaria preexistente.</p><div class="photo-grid" data-photo-section="preExisting"></div><label class="photo-add">+ Fotos do local<input type="file" accept="image/*" capture="environment" multiple data-photo-input="preExisting"></label></div>
+          <div class="card"><div class="card-head"><h3>Localização</h3><button type="button" class="secondary geo-btn" data-target="serviceLocation">Registrar GPS</button></div><input name="serviceLocation" placeholder="Latitude, longitude e horário" readonly></div>
+        </section>
+
+        <section class="form-step" data-step="1">
+          <div class="step-title"><span>02</span><div><h2>Veículo e deslocamento</h2><p>Registre as condições antes da saída e os horários do atendimento.</p></div></div>
+          <div class="card grid-3">
+            <label>Veículo<input name="vehicle"></label><label>Placa<input name="plate"></label><label>Motorista<input name="driver"></label>
+            <label>Equipe<input name="team" placeholder="Nomes separados por vírgula"></label><label>Km inicial<input name="kmStart" inputmode="decimal"></label><label>Km final<input name="kmEnd" inputmode="decimal"></label>
+            <label>Saída da base<input name="departAt" type="datetime-local"></label><label>Chegada ao cliente<input name="arriveAt" type="datetime-local"></label><label>Início do serviço<input name="serviceStartAt" type="datetime-local"></label>
+            <label>Fim do serviço<input name="serviceEndAt" type="datetime-local"></label><label>Saída do cliente<input name="departClientAt" type="datetime-local"></label><label>Retorno à base<input name="returnAt" type="datetime-local"></label>
+            <label class="check"><input name="waterOk" type="checkbox"> Água verificada</label><label class="check"><input name="oilOk" type="checkbox"> Óleo verificado</label><label class="check"><input name="fuelOk" type="checkbox"> Combustível verificado</label><label class="check"><input name="epiOk" type="checkbox"> EPIs conferidos</label>
+            <label class="wide">Observações do veículo e deslocamento<textarea name="obsVehicle" rows="3"></textarea></label>
+          </div>
+          <div class="card"><div class="card-head"><h3>Comparativo de tempo</h3><button type="button" id="stampNowBtn" class="secondary">Registrar horário atual</button></div><div class="summary-grid timing"><article><b id="travelOut">--</b><span>Deslocamento de ida</span></article><article><b id="waitingTime">--</b><span>Espera/preparação</span></article><article><b id="serviceTime">--</b><span>Execução</span></article><article><b id="stayTime">--</b><span>Permanência no cliente</span></article><article><b id="travelBack">--</b><span>Retorno</span></article><article><b id="totalTime">--</b><span>Tempo total</span></article></div><p class="hint">Os tempos são calculados automaticamente e ficam vinculados ao tipo de serviço para comparação em orçamentos futuros.</p></div>
+          <div class="card"><h3>Fotos obrigatórias antes da saída</h3><p class="hint">Painel/quilometragem, nível de combustível, reservatório de água e vareta do óleo.</p><div class="photo-grid" data-photo-section="vehicle"></div><label class="photo-add">+ Adicionar fotos<input type="file" accept="image/*" capture="environment" multiple data-photo-input="vehicle"></label></div>
+        </section>
+
+        <section class="form-step" data-step="2">
+          <div class="step-title"><span>03</span><div><h2>Materiais</h2><p>Não é possível iniciar uma instalação sem registrar o material levado e utilizado.</p></div></div>
+          <div class="rule-banner"><strong>Regra ROVAN:</strong> inclua pelo menos um material, sua quantidade e uma foto antes de avançar.</div>
+          <div class="card"><div class="card-head"><h3>Lista de materiais</h3><button type="button" id="addMaterialBtn" class="secondary">+ Material</button></div><div id="materialList" class="repeater"></div></div>
+          <div class="card"><h3>Fotos gerais dos materiais separados</h3><div class="photo-grid" data-photo-section="materials"></div><label class="photo-add">+ Fotografar materiais<input type="file" accept="image/*" capture="environment" multiple data-photo-input="materials"></label><label>Observações dos materiais<textarea name="obsMaterials" rows="3"></textarea></label></div>
+        </section>
+
+        <section class="form-step" data-step="3">
+          <div class="step-title"><span>04</span><div><h2>Ferramentas e equipamentos</h2><p>Controle ferramentas próprias, emprestadas ou alugadas e a responsabilidade pela devolução.</p></div></div>
+          <div class="card"><div class="card-head"><h3>Lista de ferramentas</h3><button type="button" id="addToolBtn" class="secondary">+ Ferramenta</button></div><div id="toolList" class="repeater"></div></div>
+          <div class="card"><h3>Fotos das ferramentas</h3><div class="photo-grid" data-photo-section="tools"></div><label class="photo-add">+ Adicionar fotos<input type="file" accept="image/*" capture="environment" multiple data-photo-input="tools"></label><label>Observações das ferramentas<textarea name="obsTools" rows="3"></textarea></label></div>
+        </section>
+
+        <section class="form-step" data-step="4">
+          <div class="step-title"><span>05</span><div><h2>Execução por etapas</h2><p>Registre antes, durante e depois de cada parte do serviço.</p></div></div>
+          <div class="card"><div class="card-head"><h3>Etapas executadas</h3><button type="button" id="addWorkStepBtn" class="secondary">+ Etapa</button></div><div id="workStepList" class="work-steps"></div></div>
+          <div class="card grid-2"><label class="wide">Alterações em relação ao orçamento<textarea name="changes" rows="3"></textarea></label><label class="wide">Autorização do cliente para alterações<textarea name="changeApproval" rows="3" placeholder="Nome, horário e forma de autorização"></textarea></label><label class="wide">Observações gerais da execução<textarea name="obsExecution" rows="3"></textarea></label></div>
+        </section>
+
+        <section class="form-step" data-step="5">
+          <div class="step-title"><span>06</span><div><h2>Telhado, forro e áreas de risco</h2><p>Protocolo especial para reduzir conflitos sobre telhas, goteiras e danos preexistentes.</p></div></div>
+          <div class="card"><label class="toggle"><input name="roofWork" type="checkbox"><span>Este serviço envolve telhado, forro ou movimentação de telhas</span></label><label>Condições encontradas antes do serviço<textarea name="roofCondition" rows="3"></textarea></label><label>Observações desta etapa<textarea name="obsRoof" rows="3"></textarea></label></div>
+          <div class="roof-grid">
+            <div class="card"><h3>Antes <span class="required">mín. 5 fotos</span></h3><div class="photo-grid" data-photo-section="roofBefore"></div><label class="photo-add">+ Fotos antes<input type="file" accept="image/*" capture="environment" multiple data-photo-input="roofBefore"></label></div>
+            <div class="card"><h3>Durante <span class="required">sempre que mexer em telha</span></h3><div class="photo-grid" data-photo-section="roofDuring"></div><label class="photo-add">+ Fotos durante<input type="file" accept="image/*" capture="environment" multiple data-photo-input="roofDuring"></label></div>
+            <div class="card"><h3>Depois <span class="required">mín. 5 fotos</span></h3><div class="photo-grid" data-photo-section="roofAfter"></div><label class="photo-add">+ Fotos depois<input type="file" accept="image/*" capture="environment" multiple data-photo-input="roofAfter"></label></div>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="6">
+          <div class="step-title"><span>07</span><div><h2>Conclusão e entrega</h2><p>Testes, evidências finais, aceite e geração do relatório.</p></div></div>
+          <div class="card grid-2">
+            <label class="wide">Testes realizados<textarea name="tests" rows="3" required></textarea></label><label class="wide">Pendências e recomendações<textarea name="pending" rows="3"></textarea></label>
+            <label>Responsável técnico<input name="technician"></label><label>Cliente/representante que acompanhou<input name="clientRepresentative"></label>
+            <label class="check"><input name="clientAccepted" type="checkbox"> Serviço demonstrado e aceito pelo cliente</label><label class="check"><input name="siteClean" type="checkbox"> Local limpo e organizado</label>
+            <label>Custos extras (R$)<input name="extraCosts" inputmode="decimal"></label><label>Pedágio/estacionamento (R$)<input name="travelCosts" inputmode="decimal"></label>
+            <label class="wide">Motivo de diferença entre tempo previsto e realizado<textarea name="timeDeviationReason" rows="2"></textarea></label>
+            <label class="wide">Observações finais<textarea name="obsConclusion" rows="3"></textarea></label>
+          </div>
+          <div class="card"><h3>Fotos finais do serviço</h3><div class="photo-grid" data-photo-section="final"></div><label class="photo-add">+ Fotos finais<input type="file" accept="image/*" capture="environment" multiple data-photo-input="final"></label></div>
+          <div class="final-actions"><button type="button" id="completeBtn" class="primary large">Concluir ordem de serviço</button><button type="button" id="printBtn" class="secondary large">Gerar relatório / PDF</button><button type="button" id="exportBtn" class="ghost large">Exportar backup</button></div>
+        </section>
+      </form>
+
+      <div class="form-footer"><button id="prevBtn" class="ghost">← Anterior</button><span id="saveState">Salvo no aparelho</span><button id="nextBtn" class="primary">Próxima →</button></div>
+    </section>
+  </main>
+
+  <dialog id="alertDialog"><h3 id="alertTitle">Atenção</h3><p id="alertText"></p><button id="alertClose" class="primary">Entendi</button></dialog>
+  <template id="materialTemplate"><div class="repeat-card"><button type="button" class="remove">×</button><div class="grid-3"><label>Material/equipamento<input data-field="name" required></label><label>Quantidade levada<input data-field="qty" required></label><label>Quantidade utilizada<input data-field="usedQty"></label><label>Local instalado<input data-field="location"></label><label>Marca/modelo<input data-field="model"></label><label>Quantidade devolvida<input data-field="returnedQty"></label></div><div class="mini-photos" data-item-photos></div><label class="photo-add compact">+ Foto do material/etiqueta<input type="file" accept="image/*" capture="environment" multiple data-item-photo-input></label><details class="advanced"><summary>Dados técnicos, compra e garantia</summary><div class="grid-3"><label>Unidade<input data-field="unit" placeholder="un, m, cx, kit"></label><label>Perda/sobra<input data-field="wasteQty"></label><label>Nº de série/lote<input data-field="serial"></label><label>Endereço MAC<input data-field="mac" placeholder="00:00:00:00:00:00"></label><label>Endereço IP<input data-field="ip" placeholder="192.168.0.100"></label><label>Fornecedor<input data-field="supplier"></label><label>Data da compra<input data-field="purchaseDate" type="date"></label><label>Nº da nota fiscal<input data-field="invoice"></label><label>Garantia até<input data-field="warrantyUntil" type="date"></label><label class="wide">Observações técnicas e de rede<textarea data-field="notes" rows="2"></textarea></label></div></details></div></template>
+  <template id="toolTemplate"><div class="repeat-card"><button type="button" class="remove">×</button><div class="grid-3"><label>Ferramenta/equipamento<input data-field="name" required></label><label>Origem<select data-field="origin"><option>Própria</option><option>Emprestada</option><option>Alugada</option></select></label><label>Quantidade<input data-field="qty" value="1"></label><label>Proprietário/locadora<input data-field="owner"></label><label>Responsável<input data-field="responsible"></label><label>Devolução prevista<input data-field="returnAt" type="date"></label><label>Estado na retirada<input data-field="condition"></label><label>Nº patrimônio/série<input data-field="serial"></label><label class="wide">Observações<textarea data-field="notes" rows="2"></textarea></label></div><div class="mini-photos" data-item-photos></div><label class="photo-add compact">+ Foto da ferramenta<input type="file" accept="image/*" capture="environment" multiple data-item-photo-input></label></div></template>
+  <template id="workStepTemplate"><div class="work-card"><button type="button" class="remove">×</button><div class="grid-2"><label>Nome da etapa<input data-field="name" required placeholder="Ex.: passagem de cabos"></label><label>Responsável<input data-field="responsible"></label><label class="wide">Descrição do que foi executado<textarea data-field="description" rows="3"></textarea></label><label class="wide">Observações desta etapa<textarea data-field="notes" rows="3"></textarea></label></div><div class="three-photos"><div><h4>Antes</h4><div class="mini-photos" data-step-photos="before"></div><label class="photo-add compact">+ Fotos<input type="file" accept="image/*" capture="environment" multiple data-step-photo-input="before"></label></div><div><h4>Durante</h4><div class="mini-photos" data-step-photos="during"></div><label class="photo-add compact">+ Fotos<input type="file" accept="image/*" capture="environment" multiple data-step-photo-input="during"></label></div><div><h4>Depois</h4><div class="mini-photos" data-step-photos="after"></div><label class="photo-add compact">+ Fotos<input type="file" accept="image/*" capture="environment" multiple data-step-photo-input="after"></label></div></div></div></template>
+  <script src="app.js" defer></script>
+</body>
+</html>
