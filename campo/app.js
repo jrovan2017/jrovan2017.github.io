@@ -55,7 +55,23 @@ $$('.geo-btn').forEach(btn=>btn.onclick=()=>{if(!navigator.geolocation)return wa
 $('#completeBtn').onclick=async()=>{for(let i=0;i<=6;i++){const e=validation(i,true);if(e){setStep(i);return warn('Ordem não pode ser concluída',e)}}current.status='Concluída';current.fields.finishAt=current.fields.finishAt||localDateTime();await saveOrder(true);toast('Ordem de serviço concluída')};$('#printBtn').onclick=async()=>{await saveOrder(true);window.print()};$('#exportBtn').onclick=async()=>{await saveOrder(true);downloadJson(current)};
 $('#importBtn').onclick=()=>$('#importInput').click();$('#importInput').onchange=e=>{if(e.target.files[0])importBackup(e.target.files[0]);e.target.value=''};
 
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;$('#installBtn').classList.remove('hidden')});$('#installBtn').onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;$('#installBtn').classList.add('hidden')}};
+function installHelp(){
+  if(window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)return toast('O ROVAN já está instalado neste aparelho');
+  const ua=navigator.userAgent;
+  if(/iPhone|iPad|iPod/i.test(ua))return warn('Instalar no iPhone','Abra esta página no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”. Depois toque em “Adicionar”.');
+  if(/Android/i.test(ua))return warn('Instalar no Android','Abra esta página no Google Chrome, toque no menu ⋮ e escolha “Instalar app” ou “Adicionar à tela inicial”.');
+  warn('Instalar o ROVAN','No Chrome ou Edge, abra o menu do navegador e escolha “Instalar ROVAN Técnico em Campo”. Você também pode usar o ícone de instalação que aparece na barra de endereço.');
+}
+async function requestInstall(){
+  if(!deferredPrompt)return installHelp();
+  deferredPrompt.prompt();
+  const choice=await deferredPrompt.userChoice;
+  if(choice.outcome==='accepted')toast('Instalação iniciada');
+  deferredPrompt=null;
+}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e});
+$('#installBtn').onclick=requestInstall;
+$('#installHeroBtn').onclick=requestInstall;
 function connection(){const b=$('#offlineBadge');b.textContent=navigator.onLine?'Online · dados locais':'Offline · funcionando';b.style.color=navigator.onLine?'#b9f8d1':'#ffd39b'}window.addEventListener('online',connection);window.addEventListener('offline',connection);connection();
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
 
