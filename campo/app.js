@@ -64,10 +64,16 @@ function installHelp(){
 }
 async function requestInstall(){
   if(!deferredPrompt)return installHelp();
-  deferredPrompt.prompt();
-  const choice=await deferredPrompt.userChoice;
-  if(choice.outcome==='accepted')toast('Instalação iniciada');
-  deferredPrompt=null;
+  try{
+    deferredPrompt.prompt();
+    const choice=await deferredPrompt.userChoice;
+    if(choice.outcome==='accepted')toast('Instalação iniciada');
+    else installHelp();
+  }catch{
+    installHelp();
+  }finally{
+    deferredPrompt=null;
+  }
 }
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e});
 $('#installBtn').onclick=requestInstall;
