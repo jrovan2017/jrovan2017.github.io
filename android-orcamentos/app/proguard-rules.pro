@@ -1,0 +1,1 @@
+-keepclassmembers class br.com.rovan.orcamentos.MainActivity$AppBridge { public *; }

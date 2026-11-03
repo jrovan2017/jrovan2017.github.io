@@ -1,0 +1,1 @@
+-keepclassmembers class br.com.rovan.campo.MainActivity$AppBridge { public *; }

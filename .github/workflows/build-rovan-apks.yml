@@ -1,0 +1,49 @@
+name: Build ROVAN Orcamentos APK
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'android-orcamentos/**'
+      - '.github/workflows/build-rovan-orcamentos-apk.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build compatible APK
+        run: |
+          gradle -p android-orcamentos assembleDebug --no-daemon
+          gradle -p android-tecnico assembleDebug --no-daemon
+      - name: Publish APK download
+        shell: bash
+        run: |
+          mkdir -p downloads
+          cp android-orcamentos/app/build/outputs/apk/debug/app-debug.apk downloads/ROVAN-Orcamentos-MotoG5.apk
+          cp android-tecnico/app/build/outputs/apk/debug/app-debug.apk downloads/ROVAN-Tecnico-em-Campo-MotoG5.apk
+          git config user.name 'ROVAN Build'
+          git config user.email 'jrovan2017@users.noreply.github.com'
+          git add downloads/ROVAN-Orcamentos-MotoG5.apk
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publica APK ROVAN Orcamentos [skip ci]'
+          git push
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ROVAN-Apps-MotoG5
+          path: |
+            android-orcamentos/app/build/outputs/apk/debug/app-debug.apk
+            android-tecnico/app/build/outputs/apk/debug/app-debug.apk
