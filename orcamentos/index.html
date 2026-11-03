@@ -7,7 +7,8 @@
   <meta name="description" content="ROVAN Orçamentos para sistemas de segurança eletrônica.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="enhancements.css?v=1">
   <title>ROVAN Orçamentos</title>
 </head>
 <body>
@@ -48,14 +49,39 @@
           <label class="solution"><input type="checkbox" name="sys_alarm"><b>Alarme</b><span>Centrais, sensores, sirenes, bateria e comunicação</span></label>
           <label class="solution"><input type="checkbox" name="sys_fence"><b>Cerca elétrica</b><span>Perímetro, eletrificador, hastes, aterramento e placas</span></label>
         </div>
-        <div class="dimension-grid">
-          <label>Câmeras<input name="cameraQty" type="number" min="0" value="0"></label>
-          <label>Tecnologia CFTV<select name="cameraTech"><option>IP</option><option>Analógico 2 MP Full Color</option><option>Analógico HD 720p IR</option></select></label>
-          <label>Portas / acessos<input name="doorQty" type="number" min="0" value="0"></label>
-          <label>Sensores de alarme<input name="sensorQty" type="number" min="0" value="0"></label>
-          <label>Linha do alarme<select name="alarmType"><option>Sem fio</option><option>Híbrido</option><option>Com fio</option></select></label>
-          <label>Metros de cerca<input name="fenceMeters" type="number" min="0" value="0"></label>
-          <label>Sobra técnica de cabos/tubulação (%)<input name="lossPercent" type="number" min="0" value="10"></label>
+        <div id="emptySolution" class="empty-state">Escolha uma solução acima. Somente os campos necessários serão exibidos.</div>
+        <div class="solution-details">
+          <article class="system-fields hidden" data-system="cftv">
+            <div class="detail-title"><b>CFTV</b><span>Câmeras, gravação, altura e cabeamento</span></div>
+            <div class="dimension-grid">
+              <label>Tecnologia<select name="cameraTech"><option>IP</option><option>Analógico 2 MP Full Color</option><option>Analógico HD 720p IR</option></select></label>
+              <label>Até 2,20 m<input name="cameraLow" type="number" min="0" value="0"></label>
+              <label>De 2,21 a 4 m<input name="cameraMid" type="number" min="0" value="0"></label>
+              <label>De 4,01 a 6 m<input name="cameraHigh" type="number" min="0" value="0"></label>
+              <label>Acima de 6 m<input name="cameraSpecial" type="number" min="0" value="0"></label>
+              <label>Total de câmeras<input name="cameraQty" type="number" min="0" value="0" readonly></label>
+              <label>Distância média por câmera (m)<input name="distance" type="number" min="1" value="20"></label>
+              <label>Meio de transmissão<select name="cftvMedia"><option>Cabo de cobre</option><option>Fibra óptica</option><option>Rádio ponto a ponto</option></select></label>
+              <label>Ambiente do cabo<select name="cableEnvironment"><option>Interno</option><option>Externo</option><option>Subterrâneo</option></select></label>
+            </div>
+            <details class="internal-config"><summary>Valores internos por altura</summary><div class="dimension-grid"><label>Até 2,20 m (R$)<input name="cameraRateLow" type="number" min="0" value="120"></label><label>Até 4 m (R$)<input name="cameraRateMid" type="number" min="0" value="175"></label><label>Até 6 m (R$)<input name="cameraRateHigh" type="number" min="0" value="275"></label><label>Andaime/plataforma por dia (R$)<input name="accessEquipmentDay" type="number" min="0" value="250"></label></div></details>
+          </article>
+          <article class="system-fields hidden" data-system="access"><div class="detail-title"><b>Controle de acesso</b><span>Portas, portões, cancelas e ambientes</span></div><div class="dimension-grid"><label>Portas / acessos<input name="doorQty" type="number" min="0" value="0"></label><label>Tipo principal<select name="accessType"><option>Porta com facial e botoeira</option><option>Portão de veículos</option><option>Cancela</option><option>Catraca</option><option>Elevador via rádio</option><option>Leitura de placas LPR</option></select></label><label>Comunicação<select name="accessNetwork"><option>Rede cabeada</option><option>Fibra óptica</option><option>Rádio</option></select></label></div></article>
+          <article class="system-fields hidden" data-system="alarm"><div class="detail-title"><b>Alarme</b><span>Central, sensores e comunicação</span></div><div class="dimension-grid"><label>Sensores<input name="sensorQty" type="number" min="0" value="0"></label><label>Linha<select name="alarmType"><option>Sem fio</option><option>Híbrido</option><option>Com fio</option></select></label></div></article>
+          <article class="system-fields hidden" data-system="fence"><div class="detail-title"><b>Cerca elétrica</b><span>Perímetro, hastes e aterramento</span></div><div class="dimension-grid"><label>Metros de cerca<input name="fenceMeters" type="number" min="0" value="0"></label><label>Centrais<input name="fenceControllers" type="number" min="1" value="1"></label></div></article>
+          <article class="system-fields hidden" data-system="infra">
+            <div class="detail-title"><b>Infraestrutura compartilhada</b><span>Tubulação, fixação e acabamento</span></div>
+            <div class="dimension-grid">
+              <label>Passagem da fiação<select name="route"><option value="1">Tubulação existente e livre</option><option value="1.15">Canaleta com dupla face</option><option value="1.25">Novo eletroduto rígido</option><option value="1.35">Eletroduto corrugado</option><option value="1.45">Trecho enterrado/escavação</option></select></label>
+              <label>Cor / acabamento<select name="conduitColor"><option>Branco</option><option>Preto</option><option>Não se aplica</option></select></label>
+              <label>Bitola<select name="conduitSize"><option>3/4 pol.</option><option>1 pol.</option><option>Definir na vistoria</option></select></label>
+              <label>Sobra técnica (%)<input name="lossPercent" type="number" min="0" value="10"></label>
+              <label>Escavação (m)<input name="excavationMeters" type="number" min="0" value="0"></label>
+              <label>Retirar/recolocar pavimento (m)<input name="pavingMeters" type="number" min="0" value="0"></label>
+              <label>Abrir canaleta em parede (m)<input name="wallChaseMeters" type="number" min="0" value="0"></label>
+              <label>Diárias de ferramenta alugada<input name="toolRentalDays" type="number" min="0" step="0.5" value="0"></label>
+            </div>
+          </article>
         </div>
         <button type="button" id="dimensionBtn" class="primary">Dimensionar itens automaticamente</button>
       </section>
@@ -73,9 +99,7 @@
           <label>Altura máxima da instalação<select name="height"><option value="1">Até 3 m — acesso normal</option><option value="1.15">De 3 a 5 m — escada alta</option><option value="1.35">De 5 a 8 m — trabalho em altura</option><option value="1.65">Acima de 8 m — plataforma/andaime</option></select></label>
           <label>Acesso ao forro<select name="ceiling"><option value="1">Sem acesso ao forro</option><option value="1.1">Forro acessível</option><option value="1.25">Forro apertado / difícil</option><option value="1.45">Sem acesso pronto — criar passagem</option></select></label>
           <label>Telhado<select name="roof"><option value="1">Sem trabalho no telhado</option><option value="1.15">Telhado acessível e seguro</option><option value="1.35">Retirar e recolocar telhas</option><option value="1.6">Telhado frágil, alto ou inclinado</option></select></label>
-          <label>Passagem da fiação<select name="route"><option value="1">Tubulação existente e livre</option><option value="1.15">Canaleta de sobrepor</option><option value="1.25">Nova tubulação/eletroduto</option><option value="1.45">Trecho enterrado ou escavação</option></select></label>
           <label>Ambiente<select name="operation"><option value="1">Livre e desocupado</option><option value="1.1">Imóvel ocupado</option><option value="1.2">Acesso restrito / produção ativa</option></select></label>
-          <label>Distância média por ponto (m)<input name="distance" type="number" min="0" value="20"></label>
           <label>Responsáveis técnicos<input name="leadQty" type="number" min="0" value="1"></label>
           <label>Técnicos adicionais<input name="techQty" type="number" min="0" value="0"></label>
           <label>Ajudantes<input name="helperQty" type="number" min="0" value="1"></label>
@@ -122,6 +146,6 @@
 
   <dialog id="dialog"><h3 id="dialogTitle"></h3><p id="dialogText"></p><button id="dialogClose" class="primary">Entendi</button></dialog>
   <template id="itemTemplate"><tr><td><select data-k="system"><option>CFTV</option><option>Controle de acesso</option><option>Alarme</option><option>Cerca elétrica</option><option>Infraestrutura</option></select></td><td><input data-k="name"></td><td><input data-k="unit"></td><td><input data-k="qty" type="number" step="0.01" min="0"></td><td><input data-k="cost" type="number" step="0.01" min="0"></td><td data-sale>R$ 0,00</td><td data-total>R$ 0,00</td><td><button type="button" class="remove">×</button></td></tr></template>
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=6" defer></script>
 </body>
 </html>
