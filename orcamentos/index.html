@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071a33">
+  <meta name="description" content="ROVAN Orçamentos para sistemas de segurança eletrônica.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <title>ROVAN Orçamentos</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img src="logo-rovan.png" alt="Logo ROVAN"><div><strong>ROVAN Orçamentos</strong><span>Segurança eletrônica dimensionada com critério</span></div></div>
+    <div class="top-actions"><span id="saveState">Salvo no aparelho</span><button id="installBtn" class="ghost">Instalar app</button></div>
+  </header>
+
+  <main class="shell">
+    <section class="intro no-print">
+      <div><span class="eyebrow">NOVO ORÇAMENTO</span><h1>Do levantamento à proposta, sem começar do zero.</h1><p>Dimensione equipamentos, materiais, tempo de execução e dificuldades reais do local. Os custos internos ficam somente neste aparelho.</p></div>
+      <div class="intro-actions"><button id="newBtn" class="primary">Novo orçamento</button><button id="saveBtn" class="secondary">Salvar</button><button id="exportBtn" class="secondary">Backup JSON</button><label class="secondary file-label">Importar<input id="importInput" type="file" accept="application/json"></label></div>
+    </section>
+
+    <nav class="step-nav no-print" aria-label="Etapas">
+      <a href="#cliente">1. Cliente</a><a href="#solucoes">2. Soluções</a><a href="#itens">3. Itens</a><a href="#complexidade">4. Instalação</a><a href="#custos">5. Custos</a><a href="#proposta">6. Proposta</a>
+    </nav>
+
+    <form id="quoteForm">
+      <section id="cliente" class="panel">
+        <div class="section-title"><span>01</span><div><p class="eyebrow">IDENTIFICAÇÃO</p><h2>Cliente e projeto</h2></div></div>
+        <div class="grid-3">
+          <label>Cliente / empresa<input name="client" required></label>
+          <label>Telefone<input name="phone" inputmode="tel"></label>
+          <label>Data<input name="date" type="date"></label>
+          <label class="wide">Endereço completo<input name="address"></label>
+          <label>Tipo de local<select name="propertyType"><option>Residência</option><option>Comércio</option><option>Indústria</option><option>Condomínio</option></select></label>
+          <label>Validade da proposta (dias)<input name="validity" type="number" min="1" value="10"></label>
+          <label class="wide">Objetivo e necessidade do cliente<textarea name="objective" rows="3" placeholder="O que precisa ser protegido, controlado ou monitorado?"></textarea></label>
+        </div>
+      </section>
+
+      <section id="solucoes" class="panel">
+        <div class="section-title"><span>02</span><div><p class="eyebrow">ESCOPO</p><h2>Soluções do projeto</h2></div></div>
+        <div class="solution-grid">
+          <label class="solution"><input type="checkbox" name="sys_cftv"><b>CFTV</b><span>Câmeras, gravação, armazenamento e visualização</span></label>
+          <label class="solution"><input type="checkbox" name="sys_access"><b>Controle de acesso</b><span>Facial, fechaduras, botoeiras, portas e cancelas</span></label>
+          <label class="solution"><input type="checkbox" name="sys_alarm"><b>Alarme</b><span>Centrais, sensores, sirenes, bateria e comunicação</span></label>
+          <label class="solution"><input type="checkbox" name="sys_fence"><b>Cerca elétrica</b><span>Perímetro, eletrificador, hastes, aterramento e placas</span></label>
+        </div>
+        <div class="dimension-grid">
+          <label>Câmeras<input name="cameraQty" type="number" min="0" value="0"></label>
+          <label>Tecnologia CFTV<select name="cameraTech"><option>IP</option><option>Analógico 2 MP Full Color</option><option>Analógico HD 720p IR</option></select></label>
+          <label>Portas / acessos<input name="doorQty" type="number" min="0" value="0"></label>
+          <label>Sensores de alarme<input name="sensorQty" type="number" min="0" value="0"></label>
+          <label>Linha do alarme<select name="alarmType"><option>Sem fio</option><option>Híbrido</option><option>Com fio</option></select></label>
+          <label>Metros de cerca<input name="fenceMeters" type="number" min="0" value="0"></label>
+          <label>Sobra técnica de cabos/tubulação (%)<input name="lossPercent" type="number" min="0" value="10"></label>
+        </div>
+        <button type="button" id="dimensionBtn" class="primary">Dimensionar itens automaticamente</button>
+      </section>
+
+      <section id="itens" class="panel">
+        <div class="section-head"><div class="section-title"><span>03</span><div><p class="eyebrow">COMPOSIÇÃO</p><h2>Materiais e equipamentos</h2></div></div><button type="button" id="addItemBtn" class="secondary">+ Item manual</button></div>
+        <p class="hint">Informe o custo real de compra. Ele não aparecerá na proposta do cliente. O dimensionamento inclui cabos, tubulação, caixas, curvas, emendas, abraçadeiras, buchas e parafusos; todos os itens podem ser ajustados.</p>
+        <div class="table-wrap"><table><thead><tr><th>Sistema</th><th>Item</th><th>Un.</th><th>Qtd.</th><th>Custo unit.</th><th>Venda unit.</th><th>Total</th><th></th></tr></thead><tbody id="itemBody"></tbody></table></div>
+        <div id="missingPrices" class="warning hidden"></div>
+      </section>
+
+      <section id="complexidade" class="panel">
+        <div class="section-title"><span>04</span><div><p class="eyebrow">EXECUÇÃO</p><h2>Dificuldade, acesso e altura</h2></div></div>
+        <div class="grid-3">
+          <label>Altura máxima da instalação<select name="height"><option value="1">Até 3 m — acesso normal</option><option value="1.15">De 3 a 5 m — escada alta</option><option value="1.35">De 5 a 8 m — trabalho em altura</option><option value="1.65">Acima de 8 m — plataforma/andaime</option></select></label>
+          <label>Acesso ao forro<select name="ceiling"><option value="1">Sem acesso ao forro</option><option value="1.1">Forro acessível</option><option value="1.25">Forro apertado / difícil</option><option value="1.45">Sem acesso pronto — criar passagem</option></select></label>
+          <label>Telhado<select name="roof"><option value="1">Sem trabalho no telhado</option><option value="1.15">Telhado acessível e seguro</option><option value="1.35">Retirar e recolocar telhas</option><option value="1.6">Telhado frágil, alto ou inclinado</option></select></label>
+          <label>Passagem da fiação<select name="route"><option value="1">Tubulação existente e livre</option><option value="1.15">Canaleta de sobrepor</option><option value="1.25">Nova tubulação/eletroduto</option><option value="1.45">Trecho enterrado ou escavação</option></select></label>
+          <label>Ambiente<select name="operation"><option value="1">Livre e desocupado</option><option value="1.1">Imóvel ocupado</option><option value="1.2">Acesso restrito / produção ativa</option></select></label>
+          <label>Distância média por ponto (m)<input name="distance" type="number" min="0" value="20"></label>
+          <label>Responsáveis técnicos<input name="leadQty" type="number" min="0" value="1"></label>
+          <label>Técnicos adicionais<input name="techQty" type="number" min="0" value="0"></label>
+          <label>Ajudantes<input name="helperQty" type="number" min="0" value="1"></label>
+          <label class="wide">Condições especiais e riscos<textarea name="difficultyNotes" rows="3" placeholder="Telhas antigas, estrutura frágil, rede energizada, trabalho noturno, necessidade de andaime, isolamento da área..."></textarea></label>
+        </div>
+        <div class="factor-card"><span>Fator técnico calculado</span><b id="complexityFactor">1,00×</b><small>Usado para ajustar horas e mão de obra. O maior risco pesa mais e os demais fatores complementam o cálculo.</small></div>
+      </section>
+
+      <section id="custos" class="panel internal">
+        <div class="section-title"><span>05</span><div><p class="eyebrow">USO INTERNO</p><h2>Custos, margem e mão de obra</h2></div></div>
+        <div class="grid-4">
+          <label>Diária responsável (R$)<input name="leadDay" type="number" step="0.01" value="400"></label>
+          <label>Diária técnico (R$)<input name="techDay" type="number" step="0.01" value="400"></label>
+          <label>Diária ajudante (R$)<input name="helperDay" type="number" step="0.01" value="150"></label>
+          <label>Horas por diária<input name="dayHours" type="number" value="8"></label>
+          <label>Combustível/deslocamento (R$)<input name="fuel" type="number" step="0.01" value="100"></label>
+          <label>Alimentação por dia (R$)<input name="food" type="number" step="0.01" value="80"></label>
+          <label>Margem material (%)<input name="materialMargin" type="number" step="0.1" value="30"></label>
+          <label>Margem mão de obra (%)<input name="laborMargin" type="number" step="0.1" value="30"></label>
+          <label>Tributos sobre venda (%)<input name="tax" type="number" step="0.1" value="0"></label>
+          <label>Frete e despesas (R$)<input name="freight" type="number" step="0.01" value="0"></label>
+          <label>Desconto comercial (R$)<input name="discount" type="number" step="0.01" value="0"></label>
+          <label>Prazo estimado (dias)<input name="estimatedDays" type="number" step="0.5" min="0.5" value="1"></label>
+        </div>
+        <div class="cost-grid">
+          <article><span>Custo de materiais</span><b id="materialCost">R$ 0,00</b></article>
+          <article><span>Venda de materiais</span><b id="materialSale">R$ 0,00</b></article>
+          <article><span>Horas técnicas estimadas</span><b id="laborHours">0 h</b></article>
+          <article><span>Mão de obra calculada</span><b id="laborSale">R$ 0,00</b></article>
+        </div>
+      </section>
+
+      <section id="proposta" class="panel proposal">
+        <div class="proposal-brand"><img src="logo-rovan.png" alt="ROVAN"><div><p>PROPOSTA COMERCIAL</p><h2>Soluções de segurança eletrônica</h2><span>Você escolhe. Nós instalamos.</span></div></div>
+        <div id="proposalClient" class="proposal-client"></div>
+        <div id="proposalScope" class="proposal-scope"></div>
+        <div id="proposalItems"></div>
+        <div class="proposal-total"><span>Investimento estimado</span><b id="grandTotal">R$ 0,00</b><small id="proposalTerms"></small></div>
+        <div class="proposal-notes"><h3>Critérios considerados</h3><p id="proposalComplexity"></p><p>O valor é uma projeção baseada nas informações registradas. Alterações de infraestrutura, distâncias ou condições não visíveis poderão ser ajustadas após vistoria técnica.</p></div>
+        <div class="proposal-actions no-print"><button type="button" id="printBtn" class="primary">Imprimir / Salvar PDF</button></div>
+      </section>
+    </form>
+  </main>
+
+  <dialog id="dialog"><h3 id="dialogTitle"></h3><p id="dialogText"></p><button id="dialogClose" class="primary">Entendi</button></dialog>
+  <template id="itemTemplate"><tr><td><select data-k="system"><option>CFTV</option><option>Controle de acesso</option><option>Alarme</option><option>Cerca elétrica</option><option>Infraestrutura</option></select></td><td><input data-k="name"></td><td><input data-k="unit"></td><td><input data-k="qty" type="number" step="0.01" min="0"></td><td><input data-k="cost" type="number" step="0.01" min="0"></td><td data-sale>R$ 0,00</td><td data-total>R$ 0,00</td><td><button type="button" class="remove">×</button></td></tr></template>
+  <script src="app.js?v=1" defer></script>
+</body>
+</html>
