@@ -59,7 +59,12 @@ function installHelp(){
   if(window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)return toast('O ROVAN já está instalado neste aparelho');
   const ua=navigator.userAgent;
   if(/iPhone|iPad|iPod/i.test(ua))return warn('Instalar no iPhone','Abra esta página no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”. Depois toque em “Adicionar”.');
-  if(/Android/i.test(ua))return warn('Instalar no Android','Abra esta página no Google Chrome, toque no menu ⋮ e escolha “Instalar app” ou “Adicionar à tela inicial”.');
+  if(/Android/i.test(ua)&&(!/Chrome\//i.test(ua)||/; wv\)|WhatsApp|Instagram|FBAN|FBAV/i.test(ua))){
+    const target=`${location.host}${location.pathname}${location.search}${location.hash}`;
+    location.href=`intent://${target}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(location.href)};end`;
+    return;
+  }
+  if(/Android/i.test(ua))return warn('Instalar no Android','No Chrome, toque no menu ⋮ e escolha “Instalar app” ou “Adicionar à tela inicial”.');
   warn('Instalar o ROVAN','No Chrome ou Edge, abra o menu do navegador e escolha “Instalar ROVAN Técnico em Campo”. Você também pode usar o ícone de instalação que aparece na barra de endereço.');
 }
 async function requestInstall(){
